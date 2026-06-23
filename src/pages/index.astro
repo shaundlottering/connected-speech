@@ -32,6 +32,126 @@ import '../styles/global.css';
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
 
+  <!-- Structured Data -->
+  <script type="application/ld+json" is:inline>
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": ["LocalBusiness", "MedicalBusiness"],
+        "@id": "https://connectedspeech.co.za/#business",
+        "name": "Connected Speech",
+        "description": "Specialist paediatric speech therapy practice in Johannesburg and Sandton. We support children with language delays, stuttering, feeding difficulties, and autism-related communication needs using AAC, Makaton, and the PROMPT system.",
+        "url": "https://connectedspeech.co.za",
+        "logo": "https://connectedspeech.co.za/connected-speech-logo-transparent.png",
+        "image": "https://connectedspeech.co.za/connected-speech-logo-transparent.png",
+        "email": "hello@connectedspeech.co.za",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Johannesburg",
+          "addressRegion": "Gauteng",
+          "addressCountry": "ZA"
+        },
+        "areaServed": [
+          { "@type": "City", "name": "Johannesburg" },
+          { "@type": "City", "name": "Sandton" }
+        ],
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday"]
+          }
+        ],
+        "paymentAccepted": "Medical Aid",
+        "founder": { "@id": "https://connectedspeech.co.za/#jodi" },
+        "employee": { "@id": "https://connectedspeech.co.za/#jodi" },
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Speech Therapy Services",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Language Delay Therapy",
+                "description": "Early intervention for children not hitting language milestones."
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Stuttering Therapy",
+                "description": "Fluency therapy for young children who stutter, building confidence and communication skills."
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Feeding Difficulties Therapy",
+                "description": "Support for children with texture aversions, swallowing difficulties, or oral motor challenges."
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "AAC and Autism Communication Therapy",
+                "description": "Augmentative and Alternative Communication support using Makaton, PROMPT, and high-tech devices for children on the autism spectrum."
+              }
+            }
+          ]
+        },
+        "sameAs": []
+      },
+      {
+        "@type": "Person",
+        "@id": "https://connectedspeech.co.za/#jodi",
+        "name": "Jodi Zimmerman",
+        "jobTitle": "Speech-Language Pathologist",
+        "description": "Specialist in Augmentative and Alternative Communication with 8 years of clinical experience in paediatric speech therapy.",
+        "worksFor": { "@id": "https://connectedspeech.co.za/#business" },
+        "alumniOf": [
+          {
+            "@type": "EducationalOrganization",
+            "name": "University of Cape Town",
+            "description": "BSc Speech-Language Pathology, 2016"
+          },
+          {
+            "@type": "EducationalOrganization",
+            "name": "University of Pretoria",
+            "description": "MSc Augmentative and Alternative Communication, 2022"
+          }
+        ],
+        "hasCredential": [
+          {
+            "@type": "EducationalOccupationalCredential",
+            "credentialCategory": "degree",
+            "name": "BSc Speech-Language Pathology",
+            "recognizedBy": { "@type": "EducationalOrganization", "name": "University of Cape Town" }
+          },
+          {
+            "@type": "EducationalOccupationalCredential",
+            "credentialCategory": "degree",
+            "name": "MSc Augmentative and Alternative Communication",
+            "recognizedBy": { "@type": "EducationalOrganization", "name": "University of Pretoria" }
+          }
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://connectedspeech.co.za/#website",
+        "url": "https://connectedspeech.co.za",
+        "name": "Connected Speech",
+        "description": "Specialist speech therapy in Johannesburg and Sandton for children with language delays, stuttering, feeding difficulties, and autism-related communication needs.",
+        "publisher": { "@id": "https://connectedspeech.co.za/#business" },
+        "inLanguage": "en-ZA"
+      }
+    ]
+  }
+  </script>
+
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
