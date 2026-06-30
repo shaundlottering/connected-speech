@@ -1,25 +1,25 @@
 # Connected Speech
 
-> Specialist speech therapy practice in Sandton, Johannesburg, South Africa. We work with children and adults who communicate differently — with words, with signs, with whatever works for them.
+> Specialist speech therapy practice in Sandton, Johannesburg, South Africa. We work with children and adults who communicate differently, with words, with signs, with whatever works for them.
 
 ## About
 
 Connected Speech is a Sandton based private speech therapy practice founded by Jodi Zimmerman, working with children and adults who face communication challenges. The practice supports those who stutter, those with language delays, feeding therapy, complex communication needs, and adults recovering from strokes and other medical conditions.
 
-Therapy does not stop when the session ends. Connected Speech brings consistent, goal-driven support into the spaces that matter most — so progress is not left at the door.
+Therapy does not stop when the session ends. Connected Speech brings consistent, goal-driven support into the spaces that matter most, so progress is not left at the door.
 
 Sessions are billed through medical aid. Available Monday to Thursday.
 
 ## Pages
 
-- [Home](https://connectedspeech.co.za/) — overview and practice introduction
-- [About](https://connectedspeech.co.za/about) — practice philosophy, values, and Jodi Zimmerman's background
-- [Services](https://connectedspeech.co.za/services) — speech therapy services for children and for adults
-- [Contact](https://connectedspeech.co.za/contact) — contact details and booking information
+- [Home](https://connectedspeech.co.za/): overview and practice introduction
+- [About](https://connectedspeech.co.za/about): practice philosophy, values, and Jodi Zimmerman's background
+- [Services](https://connectedspeech.co.za/services): speech therapy services for children and for adults
+- [Contact](https://connectedspeech.co.za/contact): contact details and booking information
 
 ## Therapist
 
-**Jodi Zimmerman** — Speech-Language Pathologist
+**Jodi Zimmerman**, Speech-Language Pathologist
 
 - BSc Speech-Language Pathology, University of Cape Town, 2016
 - MSc Augmentative and Alternative Communication, University of Pretoria, 2022
@@ -30,11 +30,13 @@ Sessions are billed through medical aid. Available Monday to Thursday.
 
 ## Services
 
-- **Language Delay Therapy** — Early intervention for children not meeting language milestones. We identify what is holding them back and build the specific skills they need to communicate, connect, and thrive at school.
-- **Feeding Therapy** — Support for children with texture aversions, swallowing difficulties, or oral motor challenges, so that mealtimes become easier for everyone.
-- **Stuttering Therapy** — Fluency support for children and adults who stutter, building confidence and the tools to communicate without fear, at any age.
-- **Complex Communication Needs / AAC Therapy** — Augmentative and Alternative Communication support using Makaton, PROMPT, picture-based systems, and high-tech devices, for children and adults.
-- **Stroke & Medical Condition Related Communication Therapy** — Support for adults recovering from strokes and other medical conditions that affect communication, helping them rebuild the skills they need to express themselves.
+- **Language Delay Therapy**: Early intervention for children not meeting language milestones. We identify what is holding them back and build the specific skills they need to communicate, connect, and thrive at school.
+- **Language and Literacy Development**: Building vocabulary, sentence structure, and phonological awareness to support reading and writing skills.
+- **Articulation and Intelligibility Therapy**: Improving accurate sound production and clear speech patterns, so a person can be understood the first time, by anyone.
+- **Feeding Therapy**: Support for children with texture aversions, swallowing difficulties, or oral motor challenges, so that mealtimes become easier for everyone.
+- **Stuttering Therapy**: Fluency support for children and adults who stutter, building confidence and the tools to communicate without fear, at any age.
+- **Complex Communication Needs / AAC Therapy**: Augmentative and Alternative Communication support using Makaton, PROMPT, picture-based systems, and high-tech devices, for children and adults.
+- **Stroke & Medical Condition Related Communication Therapy**: Support for adults recovering from strokes and other medical conditions that affect communication, helping them rebuild the skills they need to express themselves.
 
 ## Key Facts
 
