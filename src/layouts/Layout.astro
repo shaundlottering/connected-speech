@@ -3,6 +3,9 @@ import '../styles/global.css';
 import '@fontsource-variable/cormorant-garamond';
 import '@fontsource-variable/cormorant-garamond/wght-italic.css';
 import '@fontsource-variable/jost';
+import cormorantNormal from '@fontsource-variable/cormorant-garamond/files/cormorant-garamond-latin-wght-normal.woff2?url';
+import cormorantItalic from '@fontsource-variable/cormorant-garamond/files/cormorant-garamond-latin-wght-italic.woff2?url';
+import jostNormal from '@fontsource-variable/jost/files/jost-latin-wght-normal.woff2?url';
 
 interface Props {
   title: string;
@@ -36,6 +39,11 @@ const canonical = `https://connectedspeech.co.za${path}`;
   <link rel="manifest" href="/site.webmanifest" />
   <meta name="theme-color" content="#9654C7" />
   <link rel="llms" href="/llms.txt" />
+
+  <!-- Font preloads -->
+  <link rel="preload" href={cormorantNormal} as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href={cormorantItalic} as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href={jostNormal} as="font" type="font/woff2" crossorigin />
 
   <!-- Open Graph -->
   <meta property="og:site_name" content="Connected Speech" />
