@@ -1,5 +1,8 @@
 ---
 import '../styles/global.css';
+import '@fontsource-variable/cormorant-garamond';
+import '@fontsource-variable/cormorant-garamond/wght-italic.css';
+import '@fontsource-variable/jost';
 
 interface Props {
   title: string;
@@ -51,10 +54,6 @@ const canonical = `https://connectedspeech.co.za${path}`;
   <meta name="twitter:description" content={ogDescription ?? description} />
   <meta name="twitter:image" content="https://connectedspeech.co.za/connected-speech-logo-transparent.png" />
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
 
   <!-- Structured Data -->
   <script type="application/ld+json" is:inline>
@@ -213,8 +212,8 @@ const canonical = `https://connectedspeech.co.za${path}`;
       --body:         #4A4A5A;
       --white:        #FFFFFF;
       --border:       #E8DCF5;
-      --font-display: 'Cormorant Garamond', Georgia, serif;
-      --font-body:    'Jost', system-ui, sans-serif;
+      --font-display: 'Cormorant Garamond Variable', Georgia, serif;
+      --font-body:    'Jost Variable', system-ui, sans-serif;
     }
 
     html { scroll-behavior: smooth; }
