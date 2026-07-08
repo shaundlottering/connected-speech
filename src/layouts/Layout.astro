@@ -1,7 +1,10 @@
 ---
 import '../styles/global.css';
+// @ts-ignore
 import '@fontsource-variable/cormorant-garamond';
+// @ts-ignore
 import '@fontsource-variable/cormorant-garamond/wght-italic.css';
+// @ts-ignore
 import '@fontsource-variable/jost';
 import cormorantNormal from '@fontsource-variable/cormorant-garamond/files/cormorant-garamond-latin-wght-normal.woff2?url';
 import cormorantItalic from '@fontsource-variable/cormorant-garamond/files/cormorant-garamond-latin-wght-italic.woff2?url';
@@ -687,6 +690,31 @@ const canonical = `https://connectedspeech.co.za${path === '/' ? '' : path}`;
     }
 
     .services-glance-icon { font-size: 1.1rem; }
+
+    /* How We Work */
+    .how-we-work { background: var(--purple-light); }
+    .delivery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+    }
+    .delivery-card {
+      background: var(--white);
+      border-radius: 12px;
+      padding: 1.75rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    .delivery-icon { font-size: 1.75rem; line-height: 1; }
+    .delivery-title {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--ink);
+    }
+    .delivery-desc { font-size: 0.95rem; line-height: 1.7; color: var(--body); }
 
     /* Screenings */
     .screening-section { background: var(--purple); }
