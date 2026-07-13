@@ -10,6 +10,10 @@ export default defineConfig({
     trailingSlash: "never",
     prefetch: true,
 
+    build: {
+        format: "file",
+    },
+
     devToolbar: {
         enabled: false,
     },
