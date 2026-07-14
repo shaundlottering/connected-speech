@@ -32,7 +32,8 @@ export default defineConfig({
                 });
                 const priority = priorities[item.url] ?? 0.7;
                 const changefreq = /** @type {any} */ (item.url === "https://connectedspeech.co.za/" ? "weekly" : "monthly");
-                return { ...item, priority, changefreq };
+                const lastmod = new Date().toISOString().split("T")[0];
+                return { ...item, priority, changefreq, lastmod };
             },
         }),
     ],
