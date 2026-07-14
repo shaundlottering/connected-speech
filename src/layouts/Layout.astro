@@ -888,8 +888,8 @@ const canonical = `https://connectedspeech.co.za${path === '/' ? '' : path}`;
   </style>
 
   <!-- Google Analytics -->
-  <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-4Q4WLD7DGS"></script>
-  <script is:inline>
+  <script is:inline type="text/partytown" async src="https://www.googletagmanager.com/gtag/js?id=G-4Q4WLD7DGS"></script>
+  <script is:inline type="text/partytown">
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
@@ -903,7 +903,7 @@ const canonical = `https://connectedspeech.co.za${path === '/' ? '' : path}`;
   <nav class="nav" role="navigation" aria-label="Main navigation">
     <div class="nav-inner">
       <a href="/" class="nav-logo" aria-label="Connected Speech home">
-        <Image src={logo} alt="Connected Speech logo" width={130} loading="eager" />
+        <Image src={logo} alt="Connected Speech logo" width={130} densities={[1, 2]} loading="eager" />
       </a>
       <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links">
         <span class="nav-toggle-bars" aria-hidden="true">
@@ -954,7 +954,7 @@ const canonical = `https://connectedspeech.co.za${path === '/' ? '' : path}`;
   <footer class="footer" role="contentinfo">
     <div class="footer-inner">
       <a href="/" class="footer-logo" aria-label="Connected Speech">
-        <Image src={logo} alt="Connected Speech" width={97} />
+        <Image src={logo} alt="Connected Speech" width={97} densities={[1, 2]} />
       </a>
       <p class="footer-tagline">Everyone deserves to be heard. Every family deserves to be connected.</p>
       <div class="footer-right">
