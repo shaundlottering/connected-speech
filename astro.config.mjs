@@ -2,6 +2,7 @@
 import { defineConfig } from "astro/config";
 import sitemap from "@astrojs/sitemap";
 import tailwindcss from "@tailwindcss/vite";
+import critters from "astro-critters";
 
 // https://astro.build/config
 export default defineConfig({
@@ -23,6 +24,7 @@ export default defineConfig({
     },
 
     integrations: [
+        critters(),
         sitemap({
             serialize(item) {
                 const priorities = /** @type {Record<string, number>} */ ({
