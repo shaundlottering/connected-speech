@@ -35,5 +35,5 @@ export default defineConfig({
             const lastmod = new Date().toISOString().split("T")[0];
             return { ...item, priority, changefreq, lastmod };
         },
-    }), partytown()],
+    })],
 });
