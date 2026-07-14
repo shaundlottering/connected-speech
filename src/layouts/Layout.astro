@@ -1,5 +1,7 @@
 ---
 import '../styles/global.css';
+import { Image } from 'astro:assets';
+import logo from '../assets/connected-speech-logo-transparent.png';
 // @ts-ignore
 import '@fontsource-variable/cormorant-garamond';
 // @ts-ignore
@@ -901,7 +903,7 @@ const canonical = `https://connectedspeech.co.za${path === '/' ? '' : path}`;
   <nav class="nav" role="navigation" aria-label="Main navigation">
     <div class="nav-inner">
       <a href="/" class="nav-logo" aria-label="Connected Speech home">
-        <img src="/connected-speech-logo-transparent.png" alt="Connected Speech logo" />
+        <Image src={logo} alt="Connected Speech logo" />
       </a>
       <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links">
         <span class="nav-toggle-bars" aria-hidden="true">
@@ -952,7 +954,7 @@ const canonical = `https://connectedspeech.co.za${path === '/' ? '' : path}`;
   <footer class="footer" role="contentinfo">
     <div class="footer-inner">
       <a href="/" class="footer-logo" aria-label="Connected Speech">
-        <img src="/connected-speech-logo-transparent.png" alt="Connected Speech" />
+        <Image src={logo} alt="Connected Speech" />
       </a>
       <p class="footer-tagline">Everyone deserves to be heard. Every family deserves to be connected.</p>
       <div class="footer-right">

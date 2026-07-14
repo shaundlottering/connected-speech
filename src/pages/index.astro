@@ -1,5 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import logo from '../assets/connected-speech-logo-transparent.png';
 ---
 
 <script type="application/ld+json" is:inline>
@@ -85,7 +87,7 @@ path="/"
     </div>
     <div class="hero-visual" aria-hidden="true">
       <div class="hero-logo-card">
-        <img src="/connected-speech-logo-transparent.png" alt="Connected Speech" />
+        <Image src={logo} alt="Connected Speech" />
         <p class="hero-logo-tagline">The day your child communicates what they need, and gets it.</br>That's what we work towards.</p>
       </div>
     </div>
