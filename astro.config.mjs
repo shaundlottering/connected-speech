@@ -9,8 +9,6 @@ export default defineConfig({
     site: "https://connectedspeech.co.za",
     compressHTML: true,
     trailingSlash: "never",
-    prefetch: true,
-
     build: {
         format: "file",
     },
