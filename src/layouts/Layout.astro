@@ -13,13 +13,12 @@ import jostNormal from '@fontsource-variable/jost/files/jost-latin-wght-normal.w
 interface Props {
   title: string;
   description: string;
-  keywords: string;
   path: string;
   ogTitle?: string;
   ogDescription?: string;
 }
 
-const { title, description, keywords, path, ogTitle, ogDescription } = Astro.props;
+const { title, description, path, ogTitle, ogDescription } = Astro.props;
 const canonical = `https://connectedspeech.co.za${path === '/' ? '' : path}`;
 ---
 
@@ -30,7 +29,6 @@ const canonical = `https://connectedspeech.co.za${path === '/' ? '' : path}`;
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{title}</title>
   <meta name="description" content={description} />
-  <meta name="keywords" content={keywords} />
   <link rel="canonical" href={canonical} />
 
   <!-- Favicons -->
