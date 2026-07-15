@@ -1,40 +1,69 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import ContactForm from '../components/ContactForm.astro';
 ---
 
 <Layout
   title="Contact Us | Connected Speech Sandton"
   description="Book a speech therapy session with Connected Speech in Sandton. In-person at our Morningside premises, home visits, school visits, or online. Medical aid and cash accepted."
-path="/contact"
+  path="/contact"
   ogTitle="Contact Connected Speech | Speech Therapy Sandton"
   ogDescription="Get in touch with Connected Speech, a speech therapy practice in Sandton. We accept medical aid and cash."
 >
-  <!-- CTA -->
-  <section class="cta-section" aria-labelledby="contact-heading">
-    <h1 id="contact-heading">You have something to say.<br/>Let's help you say it.</h1>
-    <p>
-      We work with families and individuals across Sandton, Johannesburg. Sessions are billed through
-      medical aid and cash. Speak to us about availability and we will take it from there.
-    </p>
-    <div class="contact-details" aria-label="Contact details">
-      <div class="credential">
-        <span class="credential-icon" aria-hidden="true">✦</span>
-        <span>jodi@connectedspeech.co.za</span>
-      </div>
-      <div class="credential">
-        <span class="credential-icon" aria-hidden="true">✦</span>
-        <span>Sandton, Johannesburg, South Africa</span>
-      </div>
-      <div class="credential">
-        <span class="credential-icon" aria-hidden="true">✦</span>
-        <span>Sessions available Monday to Thursday</span>
-      </div>
-      <div class="credential">
-        <span class="credential-icon" aria-hidden="true">✦</span>
-        <span>Medical aid and cash accepted</span>
+  <section class="section contact-page" aria-labelledby="contact-heading">
+    <div class="section-inner">
+      <div class="contact-layout">
+
+        <!-- Left: details -->
+        <div class="contact-info">
+          <span class="section-label">Get in Touch</span>
+          <h1 class="section-heading" id="contact-heading">You have something to say.<br/>Let's help you say it.</h1>
+          <div class="section-body">
+            <p>
+              Whether you want to book a session, ask a question about your child's development, or find out
+              whether speech therapy is the right next step — we are here to help.
+            </p>
+            <p>
+              We work with children and adults across Sandton, Johannesburg. Sessions are available Monday
+              to Thursday at our Morningside premises, at your home, at school, or online.
+            </p>
+          </div>
+          <div class="contact-info-list" aria-label="Contact details">
+            <div class="credential">
+              <span class="credential-icon" aria-hidden="true">✦</span>
+              <a href="mailto:jodi@connectedspeech.co.za">jodi@connectedspeech.co.za</a>
+            </div>
+            <div class="credential">
+              <span class="credential-icon" aria-hidden="true">✦</span>
+              <span>Morningside, Sandton, Johannesburg</span>
+            </div>
+            <div class="credential">
+              <span class="credential-icon" aria-hidden="true">✦</span>
+              <span>Available Monday to Thursday</span>
+            </div>
+            <div class="credential">
+              <span class="credential-icon" aria-hidden="true">✦</span>
+              <span>Medical aid and cash accepted</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: form -->
+        <div class="contact-form-col">
+          <ContactForm />
+        </div>
+
       </div>
     </div>
-    <a href="mailto:jodi@connectedspeech.co.za" class="btn-white">Get in Touch</a>
-    <p class="cta-note">Medical aid and cash accepted.</p>
   </section>
 </Layout>
+
+<style>
+  .contact-page { background: var(--white); padding-bottom: 6rem; }
+  .contact-form-col {
+    background: var(--purple-pale);
+    border: 1px solid var(--border);
+    border-radius: 1.25rem;
+    padding: 2.25rem 2rem;
+  }
+</style>

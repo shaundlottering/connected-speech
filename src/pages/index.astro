@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import { Image } from 'astro:assets';
 import logo from '../assets/connected-speech-logo-transparent.png';
+import ContactForm from '../components/ContactForm.astro';
 ---
 
 <script type="application/ld+json" is:inline>
@@ -249,12 +250,18 @@ path="/"
 
   <!-- CTA -->
   <section class="cta-section" aria-labelledby="cta-heading">
-    <h2 id="cta-heading">You have something to say.<br/>Let's help you say it.</h2>
-    <p>
-      We work with families and individuals across Sandton, Johannesburg. Sessions are billed through
-      medical aid and cash. Speak to us about availability and we will take it from there.
-    </p>
-    <a href="/contact" class="btn-white">Get in Touch</a>
-    <p class="cta-note">Medical aid rates apply.</p>
+    <div class="cta-grid">
+      <div class="cta-grid-text">
+        <h2 id="cta-heading">You have something to say.<br/>Let's help you say it.</h2>
+        <p>
+          We work with families and individuals across Sandton, Johannesburg. Sessions are billed through
+          medical aid and cash. Speak to us about availability and we will take it from there.
+        </p>
+        <p class="cta-note">Medical aid and cash accepted.</p>
+      </div>
+      <div class="cta-grid-form">
+        <ContactForm dark />
+      </div>
+    </div>
   </section>
 </Layout>

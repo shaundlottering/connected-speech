@@ -1,0 +1,41 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="Message Received | Connected Speech"
+  description="Thank you for getting in touch with Connected Speech."
+  path="/thanks"
+  robots="noindex, nofollow"
+>
+  <section class="section thanks-section" aria-labelledby="thanks-heading">
+    <div class="section-inner">
+      <div class="thanks-content">
+        <span class="section-label">Thank You</span>
+        <h1 class="section-heading" id="thanks-heading">Your message has been received.</h1>
+        <div class="section-body">
+          <p>
+            We will be in touch as soon as possible. If your matter is urgent, you are also welcome to
+            reach out directly at <a href="mailto:jodi@connectedspeech.co.za">jodi@connectedspeech.co.za</a>.
+          </p>
+          <p>
+            In the meantime, you are welcome to learn more about what we do.
+          </p>
+        </div>
+        <div class="thanks-actions">
+          <a href="/" class="btn-primary">Back to Home</a>
+          <a href="/services" class="btn-ghost">View our services →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .thanks-section { background: var(--white); min-height: 60vh; display: flex; align-items: center; }
+  .thanks-content { max-width: 600px; }
+  .thanks-content .section-body { margin-bottom: 2.5rem; }
+  .thanks-content .section-body a { color: var(--purple); }
+  .thanks-content .section-body a:hover { color: var(--purple-mid); }
+  .thanks-actions { display: flex; gap: 1.5rem; flex-wrap: wrap; align-items: center; }
+</style>

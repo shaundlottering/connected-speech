@@ -796,6 +796,44 @@ const canonical = `https://connectedspeech.co.za${path === '/' ? '' : path}`;
     .faq-answer { padding-bottom: 1.25rem; }
     .faq-answer p { color: var(--body); line-height: 1.75; font-size: 0.975rem; }
 
+    /* CTA with inline form */
+    .cta-grid {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+      text-align: left;
+    }
+
+    .cta-grid-text p {
+      margin-left: 0;
+      margin-right: 0;
+      max-width: none;
+      margin-bottom: 1.5rem;
+    }
+
+    .cta-grid-text .cta-note { margin-top: 0.75rem; margin-bottom: 0; }
+
+    /* Contact page */
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    .contact-info-list {
+      margin-top: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+    }
+
+    .contact-info-list a { color: var(--purple); }
+    .contact-info-list a:hover { color: var(--purple-mid); }
+
     /* Footer */
     .footer { background: var(--ink); padding: 3rem 2rem; }
 
@@ -828,6 +866,8 @@ const canonical = `https://connectedspeech.co.za${path === '/' ? '' : path}`;
       .about-cs-grid { grid-template-columns: 1fr; gap: 2.5rem; }
       .conditions-grid { grid-template-columns: 1fr; }
       .services-glance-list { grid-template-columns: 1fr; }
+      .cta-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .contact-layout { grid-template-columns: 1fr; gap: 2.5rem; }
       .section { padding: 3.5rem 1.5rem; }
 
       .nav-toggle { display: flex; }

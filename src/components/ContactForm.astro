@@ -1,0 +1,107 @@
+---
+interface Props {
+  dark?: boolean;
+}
+const { dark = false } = Astro.props;
+---
+
+<form
+  action="https://contact.connectedspeechza.workers.dev/"
+  method="POST"
+  class:list={['cf', { 'cf--dark': dark }]}
+  aria-label="Send us a message"
+>
+  <div class="cf-row">
+    <div class="cf-field">
+      <label for="cf-name">Name</label>
+      <input type="text" id="cf-name" name="name" required autocomplete="name" />
+    </div>
+    <div class="cf-field">
+      <label for="cf-email">Email</label>
+      <input type="email" id="cf-email" name="email" required autocomplete="email" />
+    </div>
+  </div>
+  <div class="cf-field">
+    <label for="cf-message">Message</label>
+    <textarea id="cf-message" name="message" rows="5" required></textarea>
+  </div>
+  <div class="cf-hp" aria-hidden="true">
+    <label for="cf-website">Website</label>
+    <input type="text" id="cf-website" name="website" tabindex="-1" autocomplete="off" />
+  </div>
+  <button type="submit" class:list={[{ 'btn-white': dark, 'btn-primary': !dark }]}>Send Message</button>
+</form>
+
+<style>
+  .cf { display: flex; flex-direction: column; gap: 1rem; }
+
+  .cf-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .cf-field { display: flex; flex-direction: column; gap: 0.4rem; }
+
+  .cf-field label {
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink);
+  }
+
+  .cf--dark .cf-field label { color: var(--white); }
+
+  .cf-field input,
+  .cf-field textarea {
+    font-family: var(--font-body);
+    font-size: 0.975rem;
+    color: var(--ink);
+    background: var(--white);
+    border: 1.5px solid var(--border);
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    transition: border-color 0.2s;
+    width: 100%;
+  }
+
+  .cf--dark .cf-field input,
+  .cf--dark .cf-field textarea {
+    background: var(--purple-light);
+    border-color: transparent;
+  }
+
+  .cf-field input:focus,
+  .cf-field textarea:focus {
+    outline: none;
+    border-color: var(--purple);
+  }
+
+  .cf--dark .cf-field input:focus,
+  .cf--dark .cf-field textarea:focus {
+    border-color: var(--purple-mid);
+  }
+
+  .cf-field textarea { resize: none; }
+
+  .cf-hp { display: none; }
+
+  button[type="submit"] { cursor: pointer; border: none; font-family: var(--font-body); }
+
+  .cf--dark button[type="submit"] {
+    background: var(--purple);
+    color: var(--purple-pale);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+  }
+
+  .cf--dark button[type="submit"]:hover {
+    background: var(--purple-mid);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  }
+
+  @media (max-width: 600px) {
+    .cf-row { grid-template-columns: 1fr; }
+  }
+</style>
