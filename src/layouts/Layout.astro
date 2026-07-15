@@ -697,30 +697,28 @@ const canonical = `https://connectedspeech.co.za${path === '/' ? '' : path}`;
     /* Services at a Glance (Home) */
     .services-glance-list {
       list-style: none;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      margin: 2rem 0 2.5rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.65rem 3rem;
+      margin: 1.75rem 0 2.5rem;
     }
 
     .services-glance-item {
       display: flex;
-      align-items: flex-start;
+      align-items: baseline;
       gap: 0.6rem;
-      background: var(--purple-pale);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 0.9rem 1.1rem;
-      font-size: 0.92rem;
-      font-weight: 500;
-      line-height: 1.4;
-      color: var(--ink);
-      flex: 0 1 200px;
-      min-width: 170px;
-      max-width: 220px;
+      font-size: 1rem;
+      font-weight: 400;
+      color: var(--body);
+      line-height: 1.5;
     }
 
-    .services-glance-icon { font-size: 1.1rem; }
+    .services-glance-item::before {
+      content: '—';
+      color: var(--purple);
+      flex-shrink: 0;
+      font-weight: 600;
+    }
 
     /* How We Work */
     .how-we-work { background: var(--purple-light); }
@@ -827,6 +825,7 @@ const canonical = `https://connectedspeech.co.za${path === '/' ? '' : path}`;
       .hero-logo-card { max-width: 100%; padding: 2.5rem; }
       .about-cs-grid { grid-template-columns: 1fr; gap: 2.5rem; }
       .conditions-grid { grid-template-columns: 1fr; }
+      .services-glance-list { grid-template-columns: 1fr; }
       .section { padding: 3.5rem 1.5rem; }
 
       .nav-toggle { display: flex; }
