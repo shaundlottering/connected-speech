@@ -24,6 +24,7 @@ export default defineConfig({
     },
 
     integrations: [critters(), partytown({ config: { forward: ['dataLayer.push'] } }), sitemap({
+        filter: (page) => !page.includes('/test'),
         serialize(item) {
             const priorities = /** @type {Record<string, number>} */ ({
                 "https://connectedspeech.co.za/": 1.0,
