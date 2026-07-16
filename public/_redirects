@@ -1,3 +1,6 @@
-/about/    /about    301
-/contact/  /contact  301
-/services/ /services 301
+/about/         /about          301
+/contact/       /contact        301
+/services       /therapy-services 301
+/services/      /therapy-services 301
+/therapy-services/ /therapy-services 301
+/therapy-services/school-based-speech-therapy/ /therapy-services/school-based-speech-therapy 301

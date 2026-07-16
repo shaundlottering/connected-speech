@@ -28,7 +28,7 @@ export default defineConfig({
         serialize(item) {
             const priorities = /** @type {Record<string, number>} */ ({
                 "https://connectedspeech.co.za/": 1.0,
-                "https://connectedspeech.co.za/services": 0.9,
+                "https://connectedspeech.co.za/therapy-services": 0.9,
                 "https://connectedspeech.co.za/contact": 0.8,
             });
             const priority = priorities[item.url] ?? 0.7;
