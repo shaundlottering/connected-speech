@@ -14,7 +14,8 @@ Sessions are accepted on medical aid and cash. We also submit to medical aid on 
 
 - [Home](https://connectedspeech.co.za/): overview and practice introduction
 - [About](https://connectedspeech.co.za/about): practice philosophy, values, and Jodi Zimmerman's background
-- [Services](https://connectedspeech.co.za/services): speech therapy services for children and for adults
+- [Services](https://connectedspeech.co.za/therapy-services): speech therapy services for children and for adults
+- [School-Based Speech Therapy](https://connectedspeech.co.za/therapy-services/school-based-speech-therapy): onsite speech therapy partnerships for schools in Sandton and Johannesburg
 - [Contact](https://connectedspeech.co.za/contact): contact details and booking information
 
 ## Therapist
