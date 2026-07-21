@@ -8,7 +8,7 @@ import partytown from "@astrojs/partytown";
 
 // https://astro.build/config
 export default defineConfig({
-    site: "https://connectedspeech.co.za",
+    site: "https://connectedspeech.co.za/",
     compressHTML: true,
     trailingSlash: "never",
     build: {
@@ -30,8 +30,10 @@ export default defineConfig({
                 "https://connectedspeech.co.za/": 1.0,
                 "https://connectedspeech.co.za/therapy-services": 0.9,
                 "https://connectedspeech.co.za/contact": 0.8,
+                "https://connectedspeech.co.za/about": 0.7,
+                "https://connectedspeech.co.za/therapy-services/school-based-speech-therapy": 0.7,
             });
-            const priority = priorities[item.url] ?? 0.7;
+            const priority = priorities[item.url] ?? 0.6;
             const changefreq = /** @type {any} */ ("weekly");
             const lastmod = new Date().toISOString().split("T")[0];
             return { ...item, priority, changefreq, lastmod };
