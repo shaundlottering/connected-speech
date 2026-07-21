@@ -62,13 +62,19 @@ async function isRateLimited(ip, env) {
 const EMAIL_RE =
     /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
 
+const PHONE_RE = /^[+\d][\d\s\-().]{6,19}$/;
+
 function validate(data) {
     const errors = [];
     if (!data.name) errors.push("name is required");
-    if (!data.email || !EMAIL_RE.test(data.email))
-        errors.push("valid email is required");
+    if (data.name.length > 100) errors.push("name is too long");
+    if (!data.email) errors.push("email is required");
+    else if (!EMAIL_RE.test(data.email)) errors.push("email address is not valid");
+    else if (data.email.length > 254) errors.push("email address is too long");
+    if (data.phone && !PHONE_RE.test(data.phone)) errors.push("phone number is not valid");
     if (!data.message) errors.push("message is required");
-    if (data.message.length > 5000) errors.push("message is too long");
+    else if (data.message.length < 10) errors.push("message is too short");
+    else if (data.message.length > 5000) errors.push("message is too long");
     return errors;
 }
 
