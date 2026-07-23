@@ -10,6 +10,37 @@ import ContactForm from '../../components/ContactForm.astro';
   ogTitle="Onsite Speech Therapy for Schools | Connected Speech Sandton"
   ogDescription="Bring speech therapy onto your campus. Connected Speech partners with schools in Sandton and Johannesburg for onsite therapy, free screenings, and specialist AAC support."
 >
+  <script slot="head" type="application/ld+json" is:inline>
+  [
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://connectedspeech.co.za/" },
+        { "@type": "ListItem", "position": 2, "name": "Therapy Services", "item": "https://connectedspeech.co.za/therapy-services" },
+        { "@type": "ListItem", "position": 3, "name": "School-Based Speech Therapy", "item": "https://connectedspeech.co.za/therapy-services/school-based-speech-therapy" }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "@id": "https://connectedspeech.co.za/therapy-services/school-based-speech-therapy#service",
+      "name": "School-Based Speech Therapy",
+      "serviceType": "Onsite School Speech-Language Therapy",
+      "description": "Onsite speech-language therapy partnerships for schools in Sandton and Johannesburg, including free group screenings and specialist AAC support delivered on campus.",
+      "url": "https://connectedspeech.co.za/therapy-services/school-based-speech-therapy",
+      "provider": { "@id": "https://connectedspeech.co.za/#business" },
+      "areaServed": [
+        { "@type": "City", "name": "Sandton" },
+        { "@type": "City", "name": "Johannesburg" }
+      ],
+      "audience": {
+        "@type": "Audience",
+        "audienceType": "Schools and learners in Sandton and Johannesburg"
+      }
+    }
+  ]
+  </script>
 
   <!-- Intro -->
   <section class="section schools-intro" aria-labelledby="schools-heading">

@@ -10,6 +10,30 @@ path="/therapy-services"
   ogTitle="Speech Therapy Services | Connected Speech Sandton"
   ogDescription="From language delays and stuttering to feeding therapy, AAC, and stroke recovery. Specialist speech therapy for children and adults in Sandton, at home, at school, or online."
 >
+  <script slot="head" type="application/ld+json" is:inline>
+  [
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://connectedspeech.co.za/" },
+        { "@type": "ListItem", "position": 2, "name": "Therapy Services", "item": "https://connectedspeech.co.za/therapy-services" }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "name": "Therapy Services",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "item": { "@id": "https://connectedspeech.co.za/therapy-services/speech-therapy#service" } },
+        { "@type": "ListItem", "position": 2, "item": { "@id": "https://connectedspeech.co.za/therapy-services/feeding-therapy#service" } },
+        { "@type": "ListItem", "position": 3, "item": { "@id": "https://connectedspeech.co.za/therapy-services/special-needs-speech-therapy#service" } },
+        { "@type": "ListItem", "position": 4, "item": { "@id": "https://connectedspeech.co.za/therapy-services/school-based-speech-therapy#service" } }
+      ]
+    }
+  ]
+  </script>
+
   <!-- What We Work On -->
   <section class="section conditions" aria-labelledby="conditions-heading">
     <div class="section-inner">
@@ -30,6 +54,7 @@ path="/therapy-services"
             When language milestones are not being met, early intervention makes the biggest difference.
             We identify what is holding a child back and build the specific skills they need, so they can
             communicate their needs, connect with others, and thrive at school.
+            <a href="/therapy-services/speech-therapy">Learn more →</a>
           </p>
         </article>
         <article class="condition-card" role="listitem">
@@ -39,6 +64,7 @@ path="/therapy-services"
             Mealtimes should not be a source of stress. We work with children who have difficulty with
             textures, swallowing, or oral motor skills, helping them eat more comfortably and confidently,
             so that mealtimes become easier for the whole family.
+            <a href="/therapy-services/feeding-therapy">Learn more →</a>
           </p>
         </article>
         <article class="condition-card" role="listitem">
@@ -48,6 +74,7 @@ path="/therapy-services"
             Stuttering and stammering affect both children and adults, and the impact goes far beyond speech. Your therapist
             works with you and your family to build fluency, confidence, and the tools to communicate
             without fear, at any age.
+            <a href="/therapy-services/speech-therapy">Learn more →</a>
           </p>
         </article>
         <article class="condition-card" role="listitem">
@@ -57,6 +84,7 @@ path="/therapy-services"
             Some people communicate in ways that go beyond speech, and that is okay. We support children
             and adults with AAC tools, Makaton, PROMPT, and individualised strategies, so they can express
             themselves and participate fully in the world around them.
+            <a href="/therapy-services/special-needs-speech-therapy">Learn more →</a>
           </p>
         </article>
         <article class="condition-card" role="listitem">
@@ -65,6 +93,7 @@ path="/therapy-services"
           <p class="condition-desc">
             We support adults recovering from strokes and other medical conditions that affect communication,
             helping them rebuild the skills they need to express themselves and reconnect with the people in their lives.
+            <a href="/therapy-services/speech-therapy">Learn more →</a>
           </p>
         </article>
         <article class="condition-card" role="listitem">
@@ -73,6 +102,7 @@ path="/therapy-services"
           <p class="condition-desc">
             Strong language skills are the foundation for reading and writing. We build the vocabulary,
             sentence structure, and phonological awareness a child needs to develop literacy skills and succeed at school.
+            <a href="/therapy-services/speech-therapy">Learn more →</a>
           </p>
         </article>
         <article class="condition-card" role="listitem">
@@ -81,6 +111,7 @@ path="/therapy-services"
           <p class="condition-desc">
             Speech that is difficult to understand can affect confidence and connection. We work on accurate
             sound production and clear speech patterns, so a person can be understood the first time, by anyone.
+            <a href="/therapy-services/speech-therapy">Learn more →</a>
           </p>
         </article>
       </div>
@@ -114,6 +145,7 @@ path="/therapy-services"
           <p class="delivery-desc">Remote sessions via video call for those who prefer to meet from home, or where travel is not practical.</p>
         </div>
       </div>
+      <a href="/how-we-work" class="btn-ghost" style="margin-top: 1.5rem; display: inline-block;">More about how sessions work →</a>
     </div>
   </section>
 

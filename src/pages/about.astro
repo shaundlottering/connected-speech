@@ -12,6 +12,17 @@ path="/about"
   ogTitle="About Connected Speech | Speech Therapist Sandton"
   ogDescription="Jodi Zimmerman is a Sandton speech-language pathologist with 8 years of clinical experience, specialising in AAC, Makaton, and the PROMPT system."
 >
+  <script slot="head" type="application/ld+json" is:inline>
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://connectedspeech.co.za/" },
+      { "@type": "ListItem", "position": 2, "name": "About", "item": "https://connectedspeech.co.za/about" }
+    ]
+  }
+  </script>
+
   <!-- About Connected Speech -->
   <section class="section about-cs" aria-labelledby="about-heading">
     <div class="section-inner">

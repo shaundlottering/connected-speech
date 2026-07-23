@@ -32,6 +32,10 @@ export default defineConfig({
                 "https://connectedspeech.co.za/contact": 0.8,
                 "https://connectedspeech.co.za/about": 0.7,
                 "https://connectedspeech.co.za/therapy-services/school-based-speech-therapy": 0.7,
+                "https://connectedspeech.co.za/therapy-services/speech-therapy": 0.7,
+                "https://connectedspeech.co.za/therapy-services/feeding-therapy": 0.7,
+                "https://connectedspeech.co.za/therapy-services/special-needs-speech-therapy": 0.7,
+                "https://connectedspeech.co.za/how-we-work": 0.6,
             });
             const priority = priorities[item.url] ?? 0.6;
             const changefreq = /** @type {any} */ ("weekly");

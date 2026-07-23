@@ -1,0 +1,103 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ContactForm from '../components/ContactForm.astro';
+---
+
+<Layout
+  title="How We Work | Connected Speech Sandton"
+  description="Speech therapy sessions at school, at home, at our Morningside premises, or online. See how Connected Speech fits therapy into your family's life."
+  path="/how-we-work"
+  ogTitle="How We Work | Connected Speech Sandton"
+  ogDescription="Therapy that fits your life, not the other way around. School visits, home visits, private sessions, and online therapy, all with one dedicated therapist."
+>
+  <script slot="head" type="application/ld+json" is:inline>
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://connectedspeech.co.za/" },
+      { "@type": "ListItem", "position": 2, "name": "How We Work", "item": "https://connectedspeech.co.za/how-we-work" }
+    ]
+  }
+  </script>
+
+  <!-- Intro -->
+  <section class="section how-we-work-intro" aria-labelledby="how-we-work-heading">
+    <div class="section-inner">
+      <span class="section-label">How We Work</span>
+      <h1 class="section-heading" id="how-we-work-heading">Therapy that fits your life, not the other way around.</h1>
+      <div class="section-body">
+        <p>
+          Every therapy plan at Connected Speech is built around the individual, and that includes deciding
+          where and how sessions happen. Whether that is at school, at home, at our private premises, or online,
+          the goal is the same: consistent, specialist support delivered in the setting that works best for you
+          and your family.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Formats -->
+  <section class="section how-we-work-formats" aria-labelledby="formats-heading">
+    <div class="section-inner">
+      <h2 class="section-heading" id="formats-heading">Sessions in four formats</h2>
+      <div class="delivery-grid">
+        <div class="delivery-card">
+          <span class="delivery-icon" aria-hidden="true">🏫</span>
+          <h3 class="delivery-title">School Visits</h3>
+          <p class="delivery-desc">We visit your child's school to deliver therapy where learning happens, keeping sessions close to their everyday environment.</p>
+        </div>
+        <div class="delivery-card">
+          <span class="delivery-icon" aria-hidden="true">🏠</span>
+          <h3 class="delivery-title">Home Visits</h3>
+          <p class="delivery-desc">Sessions in the comfort of your own home, where your child is relaxed and familiar, and the whole family can be part of the process.</p>
+        </div>
+        <div class="delivery-card">
+          <span class="delivery-icon" aria-hidden="true">📍</span>
+          <h3 class="delivery-title">Private Sessions</h3>
+          <p class="delivery-desc">Our private premises in Morningside, Sandton offer a calm, dedicated therapy space for focused, uninterrupted sessions.</p>
+        </div>
+        <div class="delivery-card">
+          <span class="delivery-icon" aria-hidden="true">💻</span>
+          <h3 class="delivery-title">Online Therapy</h3>
+          <p class="delivery-desc">Remote sessions via video call for those who prefer to meet from home, or where travel is not practical.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why it matters -->
+  <section class="section reassurance" aria-labelledby="formats-why-heading">
+    <div class="section-inner">
+      <div class="reassurance-grid">
+        <div class="reassurance-item">
+          <span class="section-label">One Therapist, Every Format</span>
+          <p class="section-body">Whichever formats you use, sessions are run by the same dedicated therapist, so there is no rotating roster and no handover gaps. Families and schools are kept informed with clear, specific progress reporting every step of the way.</p>
+        </div>
+        <div class="reassurance-item">
+          <span class="section-label">Payment &amp; Medical Aid</span>
+          <p class="section-body">Medical aid and cash are both accepted across every format, including school and home visits. Claims are submitted on your behalf, so there is nothing for you to chase.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section" aria-labelledby="how-we-work-cta-heading">
+    <div class="cta-grid">
+      <div class="cta-grid-text">
+        <h2 id="how-we-work-cta-heading">Not sure which format is right for you?</h2>
+        <p>
+          Get in touch and we will help you decide. Most families start with a free screening, then choose
+          the setting that fits their routine, whether that stays the same every week or changes as needed.
+        </p>
+        <p class="cta-note">
+          Want to see the services themselves? <a href="/therapy-services" style="color: var(--white); text-decoration: underline;">View all therapy services →</a>
+        </p>
+      </div>
+      <div class="cta-grid-form">
+        <ContactForm dark />
+      </div>
+    </div>
+  </section>
+</Layout>
