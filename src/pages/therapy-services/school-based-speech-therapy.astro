@@ -42,6 +42,14 @@ import ContactForm from '../../components/ContactForm.astro';
   ]
   </script>
 
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="/">Home</a>
+    <span aria-hidden="true">/</span>
+    <a href="/therapy-services">Therapy Services</a>
+    <span aria-hidden="true">/</span>
+    <span aria-current="page">School-Based Speech Therapy</span>
+  </nav>
+
   <!-- Intro -->
   <section class="section schools-intro" aria-labelledby="schools-heading">
     <div class="section-inner">
@@ -112,11 +120,11 @@ import ContactForm from '../../components/ContactForm.astro';
         and with every profile. All services are delivered on your premises, within your school day.
       </p>
       <ul class="schools-support-list">
-        <li class="schools-support-item">Language delays and language &amp; literacy development</li>
-        <li class="schools-support-item">Articulation and speech intelligibility</li>
-        <li class="schools-support-item">Complex communication needs &amp; AAC, including Makaton, PROMPT, and devices</li>
-        <li class="schools-support-item">Feeding and oral motor difficulties</li>
-        <li class="schools-support-item">Stuttering and stammering, at any age</li>
+        <li class="schools-support-item"><a href="/therapy-services/speech-therapy">Language delays and language &amp; literacy development</a></li>
+        <li class="schools-support-item"><a href="/therapy-services/speech-therapy">Articulation and speech intelligibility</a></li>
+        <li class="schools-support-item"><a href="/therapy-services/special-needs-speech-therapy">Complex communication needs &amp; AAC, including Makaton, PROMPT, and devices</a></li>
+        <li class="schools-support-item"><a href="/therapy-services/feeding-therapy">Feeding and oral motor difficulties</a></li>
+        <li class="schools-support-item"><a href="/therapy-services/speech-therapy">Stuttering and stammering, at any age</a></li>
       </ul>
     </div>
   </section>
@@ -180,7 +188,7 @@ import ContactForm from '../../components/ContactForm.astro';
             in isolation from them.
           </p>
           <p>
-            Her master's degree specialised in Augmentative and Alternative Communication, with research into
+            Her master's degree specialised in <a href="/therapy-services/special-needs-speech-therapy">Augmentative and Alternative Communication</a>, with research into
             youth empowerment and participation for learners with disabilities. She brings that depth of
             knowledge into every school she works with.
           </p>
@@ -192,6 +200,31 @@ import ContactForm from '../../components/ContactForm.astro';
           <div class="credential"><span class="credential-icon" aria-hidden="true">✦</span><span>4 years embedded in a government school for children with autism</span></div>
           <div class="credential"><span class="credential-icon" aria-hidden="true">✦</span><span>Practice No. 0735620</span></div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Related Services -->
+  <section class="section related-services" aria-labelledby="schools-related-heading">
+    <div class="section-inner">
+      <span class="section-label">Related Services</span>
+      <h2 class="section-heading" id="schools-related-heading">The therapy behind the partnership</h2>
+      <div class="related-grid">
+        <a class="related-card" href="/therapy-services/speech-therapy">
+          <span class="related-icon" aria-hidden="true">💬</span>
+          <h3 class="related-title">Speech Therapy</h3>
+          <p class="related-desc">Language delays, articulation, stuttering, and more, for learners at every stage.</p>
+        </a>
+        <a class="related-card" href="/therapy-services/feeding-therapy">
+          <span class="related-icon" aria-hidden="true">🍽️</span>
+          <h3 class="related-title">Feeding Therapy</h3>
+          <p class="related-desc">Support for learners who struggle with textures, chewing, or swallowing.</p>
+        </a>
+        <a class="related-card" href="/therapy-services/special-needs-speech-therapy">
+          <span class="related-icon" aria-hidden="true">🤝</span>
+          <h3 class="related-title">Special Needs Speech Therapy</h3>
+          <p class="related-desc">Specialist AAC, Makaton, and PROMPT support for complex communication needs.</p>
+        </a>
       </div>
     </div>
   </section>
@@ -296,6 +329,8 @@ import ContactForm from '../../components/ContactForm.astro';
     color: var(--body);
     line-height: 1.5;
   }
+  .schools-support-item a { color: var(--body); text-decoration: underline; text-underline-offset: 2px; }
+  .schools-support-item a:hover { color: var(--purple-mid); }
   .schools-support-item::before {
     content: '—';
     color: var(--purple);

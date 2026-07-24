@@ -397,7 +397,7 @@ const canonical = `https://connectedspeech.co.za${path === '/' ? '' : path}`;
     .nav-dropdown-menu li a:hover,
     .nav-dropdown-menu li a[aria-current="page"] {
       background: var(--purple-light);
-      color: var(--purple);
+      color: var(--purple-mid);
     }
 
     .nav-toggle {
@@ -608,6 +608,14 @@ const canonical = `https://connectedspeech.co.za${path === '/' ? '' : path}`;
 
     .section-body p + p { margin-top: 1.25rem; }
 
+    .section-body a {
+      color: var(--purple-mid);
+      font-weight: 600;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .section-body a:hover { color: var(--purple); }
+
     /* About Connected Speech */
     .about-cs { background: var(--white); }
 
@@ -806,6 +814,13 @@ const canonical = `https://connectedspeech.co.za${path === '/' ? '' : path}`;
       font-weight: 600;
     }
 
+    .services-glance-item a {
+      color: var(--body);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .services-glance-item a:hover { color: var(--purple-mid); }
+
     /* How We Work */
     .how-we-work { background: var(--purple-light); }
     .how-we-work .btn-ghost { color: var(--purple-mid); border-color: var(--purple-mid); }
@@ -877,6 +892,8 @@ const canonical = `https://connectedspeech.co.za${path === '/' ? '' : path}`;
 
     .faq-answer { padding-bottom: 1.25rem; }
     .faq-answer p { color: var(--body); line-height: 1.75; font-size: 0.975rem; }
+    .faq-answer a { color: var(--purple-mid); font-weight: 600; text-decoration: underline; text-underline-offset: 2px; }
+    .faq-answer a:hover { color: var(--purple); }
 
     /* Process Steps (reusable numbered list) */
     .process-steps {
@@ -920,6 +937,45 @@ const canonical = `https://connectedspeech.co.za${path === '/' ? '' : path}`;
       grid-template-columns: 1fr 1fr;
       gap: 3rem;
     }
+
+    /* Breadcrumb */
+    .breadcrumb {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 1.5rem 2rem 0;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.85rem;
+      color: var(--body);
+    }
+    .breadcrumb a { color: var(--purple-mid); font-weight: 500; }
+    .breadcrumb a:hover { color: var(--purple); text-decoration: underline; }
+    .breadcrumb span[aria-hidden] { color: var(--body); }
+    .breadcrumb span[aria-current="page"] { color: var(--body); }
+
+    /* Related Services */
+    .related-services { background: var(--white); }
+    .related-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+    }
+    .related-card {
+      display: block;
+      background: var(--purple-pale);
+      border: 1px solid var(--border);
+      border-radius: 1.25rem;
+      padding: 1.75rem 1.5rem;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .related-card:hover { box-shadow: 0 8px 32px rgba(150, 84, 199, 0.12); transform: translateY(-2px); }
+    .related-icon { font-size: 1.75rem; display: block; margin-bottom: 0.75rem; }
+    .related-title { font-family: var(--font-display); font-size: 1.15rem; color: var(--ink); margin-bottom: 0.5rem; }
+    .related-title::after { content: ' →'; color: var(--purple-mid); }
+    .related-desc { font-size: 0.9rem; line-height: 1.65; color: var(--body); }
 
     /* CTA with inline form */
     .cta-grid {

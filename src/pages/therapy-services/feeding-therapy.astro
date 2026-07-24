@@ -42,6 +42,14 @@ import ContactForm from '../../components/ContactForm.astro';
   ]
   </script>
 
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="/">Home</a>
+    <span aria-hidden="true">/</span>
+    <a href="/therapy-services">Therapy Services</a>
+    <span aria-hidden="true">/</span>
+    <span aria-current="page">Feeding Therapy</span>
+  </nav>
+
   <!-- Intro -->
   <section class="section how-we-work-intro" aria-labelledby="feeding-heading">
     <div class="section-inner">
@@ -51,9 +59,9 @@ import ContactForm from '../../components/ContactForm.astro';
         <p>
           Feeding therapy supports children who struggle with the physical or sensory side of eating,
           whether that shows up as difficulty with certain textures, trouble chewing or swallowing safely,
-          or a mealtime that ends in tears more often than not. It is delivered by a speech-language
-          pathologist because feeding and swallowing rely on many of the same oral muscles and coordination
-          skills used in speech.
+          or a mealtime that ends in tears more often than not. It is delivered by a
+          <a href="/therapy-services/speech-therapy">speech-language pathologist</a> because feeding and
+          swallowing rely on many of the same oral muscles and coordination skills used in speech.
         </p>
         <p>
           We help children eat more comfortably and confidently, so that mealtimes become easier for the
@@ -167,6 +175,26 @@ import ContactForm from '../../components/ContactForm.astro';
           <span class="section-label">There Is No Such Thing As Too Soon</span>
           <p class="section-body">If mealtimes feel harder than they should, or you are worried about what or how much your child is eating, a consultation is always the right first step.</p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Related Services -->
+  <section class="section related-services" aria-labelledby="feeding-related-heading">
+    <div class="section-inner">
+      <span class="section-label">Related Services</span>
+      <h2 class="section-heading" id="feeding-related-heading">Other ways we can help</h2>
+      <div class="related-grid">
+        <a class="related-card" href="/therapy-services/speech-therapy">
+          <span class="related-icon" aria-hidden="true">💬</span>
+          <h3 class="related-title">Speech Therapy</h3>
+          <p class="related-desc">Language delays, articulation, stuttering, and more, for children and adults at every stage of life.</p>
+        </a>
+        <a class="related-card" href="/therapy-services/special-needs-speech-therapy">
+          <span class="related-icon" aria-hidden="true">🤝</span>
+          <h3 class="related-title">Special Needs Speech Therapy</h3>
+          <p class="related-desc">Specialist AAC, Makaton, and PROMPT support for complex communication needs and autism spectrum communication differences.</p>
+        </a>
       </div>
     </div>
   </section>

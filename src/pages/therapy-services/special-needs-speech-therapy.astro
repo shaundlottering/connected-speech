@@ -42,6 +42,14 @@ import ContactForm from '../../components/ContactForm.astro';
   ]
   </script>
 
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="/">Home</a>
+    <span aria-hidden="true">/</span>
+    <a href="/therapy-services">Therapy Services</a>
+    <span aria-hidden="true">/</span>
+    <span aria-current="page">Special Needs Speech Therapy</span>
+  </nav>
+
   <!-- Intro -->
   <section class="section how-we-work-intro" aria-labelledby="special-needs-heading">
     <div class="section-inner">
@@ -177,6 +185,26 @@ import ContactForm from '../../components/ContactForm.astro';
           <span class="section-label">There Is No Such Thing As Too Soon</span>
           <p class="section-body">If you are wondering whether AAC, Makaton, or specialist support could help your child or a family member, a consultation is always the right first step.</p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Related Services -->
+  <section class="section related-services" aria-labelledby="special-needs-related-heading">
+    <div class="section-inner">
+      <span class="section-label">Related Services</span>
+      <h2 class="section-heading" id="special-needs-related-heading">Other ways we can help</h2>
+      <div class="related-grid">
+        <a class="related-card" href="/therapy-services/speech-therapy">
+          <span class="related-icon" aria-hidden="true">💬</span>
+          <h3 class="related-title">Speech Therapy</h3>
+          <p class="related-desc">Language delays, articulation, stuttering, and more, for children and adults at every stage of life.</p>
+        </a>
+        <a class="related-card" href="/therapy-services/feeding-therapy">
+          <span class="related-icon" aria-hidden="true">🍽️</span>
+          <h3 class="related-title">Feeding Therapy</h3>
+          <p class="related-desc">Support for children who struggle with textures, chewing, or swallowing, delivered by the same speech-language pathologist.</p>
+        </a>
       </div>
     </div>
   </section>
