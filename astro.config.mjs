@@ -35,6 +35,7 @@ export default defineConfig({
                 "https://connectedspeech.co.za/therapy-services/speech-therapy": 0.7,
                 "https://connectedspeech.co.za/therapy-services/feeding-therapy": 0.7,
                 "https://connectedspeech.co.za/therapy-services/special-needs-speech-therapy": 0.7,
+                "https://connectedspeech.co.za/therapy-services/online-speech-therapy": 0.7,
                 "https://connectedspeech.co.za/how-we-work": 0.6,
             });
             const priority = priorities[item.url] ?? 0.6;

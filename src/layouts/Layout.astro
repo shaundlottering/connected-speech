@@ -846,6 +846,13 @@ const canonical = `https://connectedspeech.co.za${path === '/' ? '' : path}`;
       color: var(--ink);
     }
     .delivery-desc { font-size: 0.95rem; line-height: 1.7; color: var(--body); }
+    .delivery-desc a {
+      display: inline-block;
+      margin-top: 0.5rem;
+      color: var(--purple-mid);
+      font-weight: 600;
+    }
+    .delivery-desc a:hover { color: var(--purple); }
 
     /* Screenings */
     .screening-section { background: var(--purple); }
@@ -1295,6 +1302,7 @@ const canonical = `https://connectedspeech.co.za${path === '/' ? '' : path}`;
       <a href="/about">About</a>
       <a href="/therapy-services">Therapy Services</a>
       <a href="/how-we-work">How We Work</a>
+      <a href="/therapy-services/online-speech-therapy">Online Therapy</a>
       <a href="/therapy-services/school-based-speech-therapy">For Schools</a>
       <a href="/contact">Contact</a>
     </nav>
