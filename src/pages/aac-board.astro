@@ -1,0 +1,1024 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="Connected Speech AAC Board | Free Browser-Based AAC Tool"
+  description="A free AAC communication board from Connected Speech. Add buttons, choose colors, and let your device speak each word aloud. Everything saves in your browser — nothing is uploaded."
+  path="/aac-board"
+  ogTitle="Connected Speech AAC Board"
+  ogDescription="A free, browser-based AAC communication board. Add buttons, choose colors, and let your device speak each word aloud."
+  robots="noindex, follow"
+>
+  <script slot="head" type="application/ld+json" is:inline>
+  [
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://connectedspeech.co.za" },
+        { "@type": "ListItem", "position": 2, "name": "Connected Speech AAC Board", "item": "https://connectedspeech.co.za/aac-board" }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Connected Speech AAC Board",
+      "url": "https://connectedspeech.co.za/aac-board",
+      "applicationCategory": "AccessibilityApplication",
+      "operatingSystem": "Any (runs in a web browser)",
+      "description": "A free browser-based AAC communication board with customisable buttons and text-to-speech playback. Data is stored locally in the user's browser only.",
+      "isAccessibleForFree": true,
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "ZAR" },
+      "provider": { "@id": "https://connectedspeech.co.za/#business" }
+    }
+  ]
+  </script>
+
+  <div id="aac-root" data-theme="purple">
+  <section class="aac-page" id="aac-page">
+    <div class="aac-shell">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Home</a>
+        <span aria-hidden="true">/</span>
+        <span aria-current="page">Connected Speech AAC Board</span>
+      </nav>
+
+      <header class="aac-intro">
+        <span class="section-label">Free Tool</span>
+        <h1 class="section-heading">Connected Speech AAC Board <span class="aac-beta-badge">Beta</span></h1>
+        <p class="aac-intro-body">
+          Add buttons, choose colours, and tap to hear each word spoken aloud using your device's
+          built-in voice. Everything you build is saved only in this browser — nothing is uploaded
+          or shared anywhere.
+        </p>
+      </header>
+
+      <div class="aac-toolbar">
+        <button type="button" class="aac-tbtn aac-tbtn-primary" id="aac-add-btn">+ Add Button</button>
+        <button type="button" class="aac-tbtn aac-tbtn-save" id="aac-save-template-quick" hidden>Save Changes</button>
+        <button type="button" class="aac-tbtn" id="aac-templates-btn">Templates</button>
+        <button type="button" class="aac-tbtn" id="aac-settings-btn">Settings</button>
+        <button type="button" class="aac-tbtn" id="aac-fullscreen-btn">⛶ Full Screen</button>
+      </div>
+
+      <div class="aac-grid-wrapper" id="aac-grid-wrapper">
+        <button type="button" class="aac-fullscreen-exit" id="aac-fullscreen-exit">✕ Exit Full Screen</button>
+        <div class="aac-grid" id="aac-grid" role="list" aria-label="AAC buttons"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Edit Button Modal -->
+  <div class="aac-modal-overlay" id="aac-edit-overlay" hidden>
+    <div class="aac-modal" role="dialog" aria-modal="true" aria-labelledby="aac-edit-title">
+      <h2 id="aac-edit-title">Edit Button</h2>
+      <div class="aac-field">
+        <label for="aac-edit-label">Word or phrase</label>
+        <input type="text" id="aac-edit-label" maxlength="40" placeholder="e.g. More" />
+      </div>
+      <div class="aac-field">
+        <label for="aac-edit-color">Colour</label>
+        <input type="color" id="aac-edit-color" />
+      </div>
+      <div class="aac-modal-actions">
+        <button type="button" class="aac-tbtn aac-tbtn-danger" id="aac-delete-btn">Delete</button>
+        <div class="aac-modal-actions-right">
+          <button type="button" class="aac-tbtn" id="aac-edit-cancel">Cancel</button>
+          <button type="button" class="aac-tbtn aac-tbtn-primary" id="aac-edit-save">Save</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Settings Modal -->
+  <div class="aac-modal-overlay" id="aac-settings-overlay" hidden>
+    <div class="aac-modal" role="dialog" aria-modal="true" aria-labelledby="aac-settings-title">
+      <h2 id="aac-settings-title">Settings</h2>
+      <div class="aac-field">
+        <label for="aac-cols-input">Buttons per row: <span id="aac-cols-value">4</span></label>
+        <input type="range" id="aac-cols-input" min="2" max="6" step="1" />
+      </div>
+      <div class="aac-field">
+        <label for="aac-size-input">Button size</label>
+        <select id="aac-size-input">
+          <option value="small">Small</option>
+          <option value="medium">Medium</option>
+          <option value="large">Large</option>
+        </select>
+      </div>
+      <div class="aac-field">
+        <span id="aac-theme-label">Colour theme</span>
+        <div class="aac-theme-toggle" role="group" aria-labelledby="aac-theme-label">
+          <button type="button" class="aac-theme-option" data-theme-choice="purple">Purple</button>
+          <button type="button" class="aac-theme-option" data-theme-choice="blue">Blue</button>
+        </div>
+      </div>
+      <div class="aac-modal-actions">
+        <button type="button" class="aac-tbtn aac-tbtn-danger" id="aac-reset-btn">Reset Board</button>
+        <div class="aac-modal-actions-right">
+          <button type="button" class="aac-tbtn aac-tbtn-primary" id="aac-settings-close">Done</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Templates Modal -->
+  <div class="aac-modal-overlay" id="aac-templates-overlay" hidden>
+    <div class="aac-modal" role="dialog" aria-modal="true" aria-labelledby="aac-templates-title">
+      <h2 id="aac-templates-title">Templates</h2>
+
+      <div class="aac-field">
+        <label for="aac-save-template-name">Save current board as a template</label>
+        <div class="aac-save-template-row">
+          <input type="text" id="aac-save-template-name" maxlength="30" placeholder="e.g. Sam's board" />
+          <button type="button" class="aac-tbtn aac-tbtn-primary" id="aac-save-template-btn">Save</button>
+        </div>
+      </div>
+
+      <p class="aac-modal-note">Loading a template replaces your current buttons.</p>
+      <div class="aac-template-list" id="aac-template-list"></div>
+      <div class="aac-modal-actions">
+        <div class="aac-modal-actions-right">
+          <button type="button" class="aac-tbtn" id="aac-templates-close">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Confirm / Alert Modal -->
+  <div class="aac-modal-overlay aac-confirm-overlay" id="aac-confirm-overlay" hidden>
+    <div class="aac-modal aac-confirm-modal" role="alertdialog" aria-modal="true" aria-labelledby="aac-confirm-message">
+      <p id="aac-confirm-message"></p>
+      <div class="aac-modal-actions aac-confirm-actions">
+        <button type="button" class="aac-tbtn" id="aac-confirm-cancel">Cancel</button>
+        <button type="button" class="aac-tbtn aac-tbtn-primary" id="aac-confirm-ok">OK</button>
+      </div>
+    </div>
+  </div>
+  </div>
+</Layout>
+
+<style is:global>
+  #aac-root {
+    --aac-accent: var(--purple);
+    --aac-accent-mid: var(--purple-mid);
+    --aac-accent-light: var(--purple-light);
+    --aac-accent-pale: var(--purple-pale);
+  }
+
+  #aac-root[data-theme="blue"] {
+    --aac-accent: #4A7FD1;
+    --aac-accent-mid: #3A63A8;
+    --aac-accent-light: #EAF1FB;
+    --aac-accent-pale: #F5F9FE;
+  }
+
+  .aac-page {
+    padding: 3rem 2rem 5rem;
+    background: var(--aac-accent-pale);
+    min-height: 60vh;
+  }
+
+  .aac-shell { max-width: 1160px; margin: 0 auto; }
+
+  .aac-beta-badge {
+    display: inline-block;
+    font-family: var(--font-body);
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--aac-accent-mid);
+    background: var(--aac-accent-light);
+    padding: 0.3rem 0.65rem;
+    border-radius: 100px;
+    vertical-align: middle;
+  }
+
+  .aac-page .breadcrumb { padding: 0 0 1.5rem; margin: 0; }
+  .aac-page .breadcrumb a { color: var(--aac-accent-mid); }
+
+  .aac-intro { max-width: 640px; margin-bottom: 2rem; }
+  .aac-page .section-label { color: var(--aac-accent-mid); }
+  .aac-intro-body { font-size: 1.05rem; line-height: 1.75; color: var(--body); }
+
+  .aac-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+  }
+
+  .aac-tbtn {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 0.7rem 1.4rem;
+    border-radius: 100px;
+    border: 1.5px solid var(--aac-accent-mid);
+    background: var(--white);
+    color: var(--aac-accent-mid);
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s, transform 0.15s;
+  }
+  .aac-tbtn:hover { background: var(--aac-accent-light); transform: translateY(-1px); }
+  .aac-tbtn-primary { background: var(--aac-accent); color: var(--white); border-color: var(--aac-accent); }
+  .aac-tbtn-primary:hover { background: var(--aac-accent-mid); }
+  .aac-tbtn-danger { border-color: #C4483F; color: #C4483F; background: var(--white); }
+  .aac-tbtn-danger:hover { background: #FBEAE8; }
+  .aac-tbtn-save { border-color: #B8860B; color: #8A6300; background: #FFF7E0; }
+  .aac-tbtn-save:hover { background: #FFEFC2; }
+
+  .aac-grid-wrapper { position: relative; }
+
+  .aac-grid-wrapper:fullscreen {
+    background: var(--aac-accent-pale);
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    overflow-y: auto;
+  }
+
+  .aac-grid-wrapper:fullscreen .aac-grid { width: 100%; }
+  .aac-grid-wrapper:fullscreen .aac-edit-affordance { display: none; }
+
+  .aac-fullscreen-exit {
+    display: none;
+    position: fixed;
+    top: 1.25rem;
+    right: 1.25rem;
+    z-index: 50;
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 0.9rem;
+    padding: 0.7rem 1.25rem;
+    border-radius: 100px;
+    border: none;
+    background: var(--white);
+    color: var(--aac-accent-mid);
+    box-shadow: 0 4px 14px rgba(0,0,0,0.15);
+    cursor: pointer;
+  }
+
+  .aac-grid-wrapper:fullscreen .aac-fullscreen-exit { display: block; }
+
+  .aac-grid {
+    display: grid;
+    grid-template-columns: repeat(var(--aac-cols, 4), 1fr);
+    gap: 1rem;
+  }
+
+  .aac-cell {
+    position: relative;
+    width: 100%;
+    max-width: var(--aac-btn-size, 130px);
+    margin: 0 auto;
+  }
+
+  .aac-btn {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 1rem;
+    border: none;
+    background: var(--aac-btn-color, var(--aac-accent));
+    color: #ffffff;
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: var(--aac-btn-font, 1.15rem);
+    line-height: 1.3;
+    padding: 0.75rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.08), inset 0 -3px 0 rgba(0,0,0,0.12);
+    transition: transform 0.12s, box-shadow 0.12s;
+    word-break: break-word;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  }
+  .aac-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,0.14), inset 0 -3px 0 rgba(0,0,0,0.12); }
+  .aac-btn:active { transform: translateY(1px); box-shadow: 0 2px 8px rgba(0,0,0,0.1), inset 0 -1px 0 rgba(0,0,0,0.12); }
+  .aac-btn.is-empty { opacity: 0.55; font-style: italic; font-weight: 500; }
+
+  .aac-edit-affordance {
+    position: absolute;
+    top: 0.35rem;
+    right: 0.35rem;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255,255,255,0.9);
+    color: var(--ink);
+    font-size: 1.05rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.18);
+  }
+  .aac-edit-affordance:hover { background: var(--white); }
+
+  /* Modal */
+  .aac-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(26, 26, 46, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    z-index: 200;
+  }
+  .aac-modal-overlay[hidden] { display: none; }
+
+  .aac-modal {
+    background: var(--white);
+    border-radius: 1.25rem;
+    padding: 2rem;
+    max-width: 420px;
+    width: 100%;
+    max-height: 85vh;
+    overflow-y: auto;
+    box-shadow: 0 24px 60px rgba(0,0,0,0.25);
+  }
+  .aac-modal h2 {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    color: var(--ink);
+    margin-bottom: 1.25rem;
+  }
+  .aac-modal-note { font-size: 0.9rem; color: var(--body); margin-bottom: 1rem; }
+
+  .aac-field { margin-bottom: 1.25rem; display: flex; flex-direction: column; gap: 0.5rem; }
+  .aac-field label, .aac-field > span {
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink);
+  }
+  .aac-field input[type="text"],
+  .aac-field select {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    padding: 0.7rem 0.9rem;
+    border: 1.5px solid var(--border);
+    border-radius: 8px;
+    color: var(--ink);
+  }
+  .aac-field input[type="color"] {
+    width: 72px;
+    height: 48px;
+    padding: 0;
+    border: 1.5px solid var(--border);
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  .aac-field input[type="range"] { width: 100%; }
+
+  .aac-theme-toggle { display: flex; gap: 0.5rem; }
+  .aac-theme-option {
+    flex: 1;
+    padding: 0.6rem;
+    border-radius: 8px;
+    border: 1.5px solid var(--border);
+    background: var(--white);
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+  .aac-theme-option.is-active { border-color: var(--aac-accent); background: var(--aac-accent-light); color: var(--aac-accent-mid); }
+
+  .aac-modal-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+    flex-wrap: wrap;
+  }
+  .aac-modal-actions-right { display: flex; gap: 0.75rem; margin-left: auto; }
+
+  .aac-confirm-overlay { z-index: 300; }
+  .aac-confirm-modal { max-width: 380px; text-align: center; }
+  .aac-confirm-modal #aac-confirm-message {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: var(--ink);
+  }
+  .aac-confirm-actions { justify-content: center; margin-top: 1.75rem; }
+  .aac-confirm-actions #aac-confirm-cancel[hidden] { display: none; }
+
+  .aac-save-template-row { display: flex; gap: 0.5rem; }
+  .aac-save-template-row input { flex: 1; }
+
+  .aac-template-list { display: flex; flex-direction: column; gap: 0.75rem; margin-top: 1rem; }
+  .aac-template-row { display: flex; gap: 0.5rem; align-items: stretch; }
+  .aac-template-card {
+    display: block;
+    width: 100%;
+    text-align: left;
+    padding: 1rem 1.25rem;
+    border: 1.5px solid var(--border);
+    border-radius: 12px;
+    background: var(--aac-accent-pale);
+    cursor: pointer;
+    font-family: var(--font-body);
+    flex: 1;
+  }
+  .aac-template-card:hover { border-color: var(--aac-accent); }
+  .aac-template-card strong { display: block; color: var(--ink); font-size: 1rem; margin-bottom: 0.25rem; }
+  .aac-template-card span { font-size: 0.85rem; color: var(--body); }
+
+  .aac-template-delete {
+    width: 48px;
+    flex-shrink: 0;
+    border-radius: 12px;
+    border: 1.5px solid var(--border);
+    background: var(--white);
+    color: #C4483F;
+    font-size: 1.3rem;
+    cursor: pointer;
+  }
+  .aac-template-delete:hover { background: #FBEAE8; border-color: #C4483F; }
+
+  @media (max-width: 700px) {
+    .aac-grid { grid-template-columns: repeat(var(--aac-cols-mobile, 3), 1fr); gap: 0.75rem; }
+    .aac-page { padding: 2rem 1rem 3rem; }
+  }
+</style>
+
+<script>
+  type AacButton = { id: string; label: string; color: string };
+  type AacSettings = { buttonsPerRow: number; buttonSize: 'small' | 'medium' | 'large' };
+  type AacState = {
+    buttons: AacButton[];
+    settings: AacSettings;
+    theme: 'purple' | 'blue';
+    activeTemplateId: string | null;
+    activeTemplateName: string | null;
+    templateDirty: boolean;
+  };
+  type CustomTemplate = { id: string; name: string; buttons: { label: string; color: string }[] };
+
+  const STORAGE_KEY = 'connectedSpeechAacBoardV1';
+  const CUSTOM_TEMPLATES_KEY = 'connectedSpeechAacCustomTemplatesV1';
+
+  const PALETTE = ['#E4574C', '#E88A2E', '#E0B324', '#3EA575', '#3E7FD1', '#8B5FD1', '#D1548B', '#5B6B7A'];
+
+  const SIZE_MAP: Record<AacSettings['buttonSize'], { size: string; font: string }> = {
+    small: { size: '90px', font: '0.95rem' },
+    medium: { size: '130px', font: '1.15rem' },
+    large: { size: '175px', font: '1.4rem' },
+  };
+
+  const TEMPLATES: Record<string, { name: string; description: string; words: string[] }> = {
+    feeding: {
+      name: 'Feeding',
+      description: 'Hungry, water, more, all done, and other mealtime words.',
+      words: ['Hungry', 'Thirsty', 'More', 'All Done', 'Yummy', 'Yucky', 'Eat', 'Drink', 'Snack', 'Help'],
+    },
+    goingOut: {
+      name: 'Going Out',
+      description: 'Shoes, coat, car, and other words for heading out the door.',
+      words: ['Shoes', 'Coat', 'Car', 'Outside', 'Bathroom', 'Wait', 'Home', 'Help', 'Stop', 'Go'],
+    },
+  };
+
+  function defaultState(): AacState {
+    return {
+      buttons: [{ id: crypto.randomUUID(), label: '', color: PALETTE[5] }],
+      settings: { buttonsPerRow: 4, buttonSize: 'medium' },
+      theme: 'purple',
+      activeTemplateId: null,
+      activeTemplateName: null,
+      templateDirty: false,
+    };
+  }
+
+  function loadState(): AacState {
+    try {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      if (!raw) return defaultState();
+      const parsed = JSON.parse(raw);
+      if (!parsed.buttons || !parsed.buttons.length) return defaultState();
+      return {
+        ...defaultState(),
+        ...parsed,
+      };
+    } catch {
+      return defaultState();
+    }
+  }
+
+  function saveState() {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+  }
+
+  let state = loadState();
+  let editingId: string | null = null;
+
+  const grid = document.getElementById('aac-grid') as HTMLElement;
+  const themeRoot = document.getElementById('aac-root') as HTMLElement;
+
+  // --- Branded confirm / alert modal (replaces window.confirm / window.alert) ---
+  const confirmOverlay = document.getElementById('aac-confirm-overlay') as HTMLElement;
+  const confirmMessage = document.getElementById('aac-confirm-message') as HTMLElement;
+  const confirmOkBtn = document.getElementById('aac-confirm-ok') as HTMLButtonElement;
+  const confirmCancelBtn = document.getElementById('aac-confirm-cancel') as HTMLButtonElement;
+
+  function showConfirm(message: string, opts: { okLabel?: string; showCancel?: boolean } = {}): Promise<boolean> {
+    return new Promise((resolve) => {
+      const showCancel = opts.showCancel !== false;
+      confirmMessage.textContent = message;
+      confirmOkBtn.textContent = opts.okLabel ?? 'OK';
+      confirmCancelBtn.hidden = !showCancel;
+      confirmOverlay.hidden = false;
+      confirmOkBtn.focus();
+
+      const cleanup = (result: boolean) => {
+        confirmOverlay.hidden = true;
+        confirmOkBtn.removeEventListener('click', onOk);
+        confirmCancelBtn.removeEventListener('click', onCancel);
+        confirmOverlay.removeEventListener('click', onOverlayClick);
+        document.removeEventListener('keydown', onKeydown);
+        resolve(result);
+      };
+      const onOk = () => cleanup(true);
+      const onCancel = () => cleanup(false);
+      const onOverlayClick = (e: MouseEvent) => { if (e.target === confirmOverlay) cleanup(false); };
+      const onKeydown = (e: KeyboardEvent) => {
+        if (e.key === 'Escape') cleanup(false);
+        if (e.key === 'Enter') cleanup(true);
+      };
+
+      confirmOkBtn.addEventListener('click', onOk);
+      confirmCancelBtn.addEventListener('click', onCancel);
+      confirmOverlay.addEventListener('click', onOverlayClick);
+      document.addEventListener('keydown', onKeydown);
+    });
+  }
+
+  function showAlert(message: string, okLabel = 'OK'): Promise<void> {
+    return showConfirm(message, { okLabel, showCancel: false }).then(() => undefined);
+  }
+
+  // Voice selection is best-effort: the Web Speech API doesn't expose a
+  // gender field on voices, so we match against common name patterns used
+  // by the major platforms. Falls back to the browser default if nothing matches.
+  let cachedVoices: SpeechSynthesisVoice[] = [];
+  const FEMALE_VOICE_HINTS = /female|zira|samantha|victoria|karen|susan|moira|tessa|fiona|serena|allison|ava|kate|amy|emma|joanna|salli|kimberly|hazel|kathy/i;
+  const MALE_VOICE_HINTS = /male|david|daniel|alex\b|fred|\btom\b|james|george|mark|matthew|justin|joey|brian|\bguy\b|ryan|oliver/i;
+
+  function loadVoices() {
+    if ('speechSynthesis' in window) cachedVoices = window.speechSynthesis.getVoices();
+  }
+  loadVoices();
+  if ('speechSynthesis' in window) {
+    window.speechSynthesis.onvoiceschanged = loadVoices;
+  }
+
+  function pickVoiceForTheme(theme: 'purple' | 'blue'): SpeechSynthesisVoice | null {
+    if (!cachedVoices.length) return null;
+    const englishVoices = cachedVoices.filter((v) => v.lang?.toLowerCase().startsWith('en'));
+    const pool = englishVoices.length ? englishVoices : cachedVoices;
+    const wantFemale = theme === 'purple';
+    const hintRe = wantFemale ? FEMALE_VOICE_HINTS : MALE_VOICE_HINTS;
+    const antiHintRe = wantFemale ? MALE_VOICE_HINTS : FEMALE_VOICE_HINTS;
+    return pool.find((v) => hintRe.test(v.name)) || pool.find((v) => !antiHintRe.test(v.name)) || pool[0];
+  }
+
+  function speak(text: string) {
+    if (!text) return;
+    if (!('speechSynthesis' in window)) {
+      void showAlert("Sorry, this browser doesn't support text-to-speech.");
+      return;
+    }
+    window.speechSynthesis.cancel();
+    const utter = new SpeechSynthesisUtterance(text);
+    utter.rate = 0.95;
+    const voice = pickVoiceForTheme(state.theme);
+    if (voice) utter.voice = voice;
+    window.speechSynthesis.speak(utter);
+  }
+
+  function applyLayout() {
+    const sizeInfo = SIZE_MAP[state.settings.buttonSize];
+    grid.style.setProperty('--aac-cols', String(state.settings.buttonsPerRow));
+    grid.style.setProperty('--aac-cols-mobile', String(Math.min(state.settings.buttonsPerRow, 3)));
+    grid.style.setProperty('--aac-btn-size', sizeInfo.size);
+    grid.style.setProperty('--aac-btn-font', sizeInfo.font);
+  }
+
+  function applyTheme() {
+    themeRoot.setAttribute('data-theme', state.theme);
+    document.querySelectorAll<HTMLElement>('.aac-theme-option').forEach((btn) => {
+      btn.classList.toggle('is-active', btn.dataset.themeChoice === state.theme);
+    });
+  }
+
+  // --- Active-template dirty tracking (powers the quick "Save Changes" button) ---
+  const quickSaveBtn = document.getElementById('aac-save-template-quick') as HTMLButtonElement;
+
+  function updateQuickSaveButton() {
+    const dirty = Boolean(state.activeTemplateId) && state.templateDirty;
+    quickSaveBtn.hidden = !dirty;
+    if (dirty) quickSaveBtn.textContent = `Save Changes to "${state.activeTemplateName}"`;
+  }
+
+  function markButtonsChanged() {
+    if (state.activeTemplateId) state.templateDirty = true;
+    saveState();
+    updateQuickSaveButton();
+  }
+
+  function render() {
+    applyLayout();
+    applyTheme();
+    grid.innerHTML = '';
+    for (const btn of state.buttons) {
+      const cell = document.createElement('div');
+      cell.className = 'aac-cell';
+      cell.setAttribute('role', 'listitem');
+
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'aac-btn' + (btn.label ? '' : ' is-empty');
+      button.style.setProperty('--aac-btn-color', btn.color);
+      button.textContent = btn.label || 'Tap edit to set a word';
+      button.addEventListener('click', () => speak(btn.label));
+
+      const editBtn = document.createElement('button');
+      editBtn.type = 'button';
+      editBtn.className = 'aac-edit-affordance';
+      editBtn.setAttribute('aria-label', `Edit "${btn.label || 'button'}"`);
+      editBtn.textContent = '✎';
+      editBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        openEditModal(btn.id);
+      });
+
+      cell.appendChild(button);
+      cell.appendChild(editBtn);
+      grid.appendChild(cell);
+    }
+  }
+
+  // --- Add / Edit / Delete ---
+  const editOverlay = document.getElementById('aac-edit-overlay') as HTMLElement;
+  const editLabelInput = document.getElementById('aac-edit-label') as HTMLInputElement;
+  const editColorInput = document.getElementById('aac-edit-color') as HTMLInputElement;
+
+  function openEditModal(id: string) {
+    const btn = state.buttons.find((b) => b.id === id);
+    if (!btn) return;
+    editingId = id;
+    editLabelInput.value = btn.label;
+    editColorInput.value = btn.color;
+    editOverlay.hidden = false;
+    editLabelInput.focus();
+  }
+
+  function closeEditModal() {
+    editOverlay.hidden = true;
+    editingId = null;
+  }
+
+  document.getElementById('aac-add-btn')?.addEventListener('click', () => {
+    const newBtn: AacButton = {
+      id: crypto.randomUUID(),
+      label: '',
+      color: PALETTE[state.buttons.length % PALETTE.length],
+    };
+    state.buttons.push(newBtn);
+    markButtonsChanged();
+    render();
+    openEditModal(newBtn.id);
+  });
+
+  function saveEditedButton() {
+    if (!editingId) return;
+    const btn = state.buttons.find((b) => b.id === editingId);
+    if (btn) {
+      btn.label = editLabelInput.value.trim().slice(0, 40);
+      btn.color = editColorInput.value;
+      markButtonsChanged();
+      render();
+    }
+    closeEditModal();
+  }
+
+  document.getElementById('aac-edit-save')?.addEventListener('click', saveEditedButton);
+
+  editLabelInput.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      saveEditedButton();
+    }
+  });
+
+  document.getElementById('aac-edit-cancel')?.addEventListener('click', closeEditModal);
+
+  document.getElementById('aac-delete-btn')?.addEventListener('click', async () => {
+    if (!editingId) return;
+    if (state.buttons.length <= 1) {
+      await showAlert('You need at least one button on the board.');
+      return;
+    }
+    if (!(await showConfirm('Delete this button?'))) return;
+    state.buttons = state.buttons.filter((b) => b.id !== editingId);
+    markButtonsChanged();
+    render();
+    closeEditModal();
+  });
+
+  editOverlay.addEventListener('click', (e) => {
+    if (e.target === editOverlay) closeEditModal();
+  });
+
+  // --- Settings ---
+  const settingsOverlay = document.getElementById('aac-settings-overlay') as HTMLElement;
+  const colsInput = document.getElementById('aac-cols-input') as HTMLInputElement;
+  const colsValue = document.getElementById('aac-cols-value') as HTMLElement;
+  const sizeInput = document.getElementById('aac-size-input') as HTMLSelectElement;
+
+  document.getElementById('aac-settings-btn')?.addEventListener('click', () => {
+    colsInput.value = String(state.settings.buttonsPerRow);
+    colsValue.textContent = String(state.settings.buttonsPerRow);
+    sizeInput.value = state.settings.buttonSize;
+    settingsOverlay.hidden = false;
+  });
+
+  document.getElementById('aac-settings-close')?.addEventListener('click', () => {
+    settingsOverlay.hidden = true;
+  });
+
+  settingsOverlay.addEventListener('click', (e) => {
+    if (e.target === settingsOverlay) settingsOverlay.hidden = true;
+  });
+
+  colsInput?.addEventListener('input', () => {
+    colsValue.textContent = colsInput.value;
+    state.settings.buttonsPerRow = parseInt(colsInput.value, 10);
+    saveState();
+    applyLayout();
+  });
+
+  sizeInput?.addEventListener('change', () => {
+    state.settings.buttonSize = sizeInput.value as AacSettings['buttonSize'];
+    saveState();
+    applyLayout();
+  });
+
+  document.querySelectorAll<HTMLElement>('.aac-theme-option').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      state.theme = btn.dataset.themeChoice as 'purple' | 'blue';
+      saveState();
+      applyTheme();
+    });
+  });
+
+  document.getElementById('aac-reset-btn')?.addEventListener('click', async () => {
+    if (!(await showConfirm('Reset the board back to a single default button? This cannot be undone.'))) return;
+    state = defaultState();
+    saveState();
+    render();
+    updateQuickSaveButton();
+    settingsOverlay.hidden = true;
+  });
+
+  // --- Templates ---
+  const templatesOverlay = document.getElementById('aac-templates-overlay') as HTMLElement;
+  const templateList = document.getElementById('aac-template-list') as HTMLElement;
+  const saveTemplateNameInput = document.getElementById('aac-save-template-name') as HTMLInputElement;
+
+  function loadCustomTemplates(): CustomTemplate[] {
+    try {
+      const raw = localStorage.getItem(CUSTOM_TEMPLATES_KEY);
+      return raw ? JSON.parse(raw) : [];
+    } catch {
+      return [];
+    }
+  }
+
+  function saveCustomTemplates(list: CustomTemplate[]) {
+    localStorage.setItem(CUSTOM_TEMPLATES_KEY, JSON.stringify(list));
+  }
+
+  function loadButtonsFromWords(words: string[]) {
+    state.buttons = words.map((word, i) => ({
+      id: crypto.randomUUID(),
+      label: word,
+      color: PALETTE[i % PALETTE.length],
+    }));
+    // Built-in templates aren't user-owned, so this board is no longer tied to a saved template.
+    state.activeTemplateId = null;
+    state.activeTemplateName = null;
+    state.templateDirty = false;
+    saveState();
+    render();
+    updateQuickSaveButton();
+    templatesOverlay.hidden = true;
+  }
+
+  function loadButtonsFromTemplate(tpl: CustomTemplate) {
+    state.buttons = tpl.buttons.map((b) => ({ id: crypto.randomUUID(), label: b.label, color: b.color }));
+    state.activeTemplateId = tpl.id;
+    state.activeTemplateName = tpl.name;
+    state.templateDirty = false;
+    saveState();
+    render();
+    updateQuickSaveButton();
+    templatesOverlay.hidden = true;
+  }
+
+  function escapeHtml(str: string) {
+    return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  }
+
+  function renderTemplateList() {
+    templateList.innerHTML = '';
+
+    for (const tpl of Object.values(TEMPLATES)) {
+      const row = document.createElement('div');
+      row.className = 'aac-template-row';
+      const card = document.createElement('button');
+      card.type = 'button';
+      card.className = 'aac-template-card';
+      card.innerHTML = `<strong>${escapeHtml(tpl.name)}</strong><span>${escapeHtml(tpl.description)}</span>`;
+      card.addEventListener('click', async () => {
+        if (!(await showConfirm(`Load the "${tpl.name}" template? This replaces your current buttons.`))) return;
+        loadButtonsFromWords(tpl.words);
+      });
+      row.appendChild(card);
+      templateList.appendChild(row);
+    }
+
+    const customTemplates = loadCustomTemplates();
+    for (const tpl of customTemplates) {
+      const row = document.createElement('div');
+      row.className = 'aac-template-row';
+
+      const card = document.createElement('button');
+      card.type = 'button';
+      card.className = 'aac-template-card';
+      card.innerHTML = `<strong>${escapeHtml(tpl.name)}</strong><span>${tpl.buttons.length} button${tpl.buttons.length === 1 ? '' : 's'}</span>`;
+      card.addEventListener('click', async () => {
+        if (!(await showConfirm(`Load the "${tpl.name}" template? This replaces your current buttons.`))) return;
+        loadButtonsFromTemplate(tpl);
+      });
+
+      const del = document.createElement('button');
+      del.type = 'button';
+      del.className = 'aac-template-delete';
+      del.setAttribute('aria-label', `Delete "${tpl.name}" template`);
+      del.textContent = '×';
+      del.addEventListener('click', async () => {
+        if (!(await showConfirm(`Delete the "${tpl.name}" template? This cannot be undone.`))) return;
+        saveCustomTemplates(loadCustomTemplates().filter((t) => t.id !== tpl.id));
+        if (state.activeTemplateId === tpl.id) {
+          state.activeTemplateId = null;
+          state.activeTemplateName = null;
+          state.templateDirty = false;
+          saveState();
+          updateQuickSaveButton();
+        }
+        renderTemplateList();
+      });
+
+      row.appendChild(card);
+      row.appendChild(del);
+      templateList.appendChild(row);
+    }
+  }
+
+  document.getElementById('aac-save-template-btn')?.addEventListener('click', async () => {
+    const name = saveTemplateNameInput.value.trim().slice(0, 30);
+    if (!name) {
+      await showAlert('Enter a name for this template first.');
+      return;
+    }
+    const existing = loadCustomTemplates();
+    const duplicate = existing.find((t) => t.name.toLowerCase() === name.toLowerCase());
+    if (duplicate && !(await showConfirm(`A template named "${name}" already exists. Overwrite it?`))) return;
+
+    const newTemplate: CustomTemplate = {
+      id: duplicate?.id ?? crypto.randomUUID(),
+      name,
+      buttons: state.buttons.filter((b) => b.label).map((b) => ({ label: b.label, color: b.color })),
+    };
+    const updated = duplicate
+      ? existing.map((t) => (t.id === duplicate.id ? newTemplate : t))
+      : [...existing, newTemplate];
+    saveCustomTemplates(updated);
+
+    state.activeTemplateId = newTemplate.id;
+    state.activeTemplateName = newTemplate.name;
+    state.templateDirty = false;
+    saveState();
+    updateQuickSaveButton();
+
+    saveTemplateNameInput.value = '';
+    renderTemplateList();
+  });
+
+  quickSaveBtn?.addEventListener('click', () => {
+    if (!state.activeTemplateId) return;
+    const existing = loadCustomTemplates();
+    const updated = existing.map((t) =>
+      t.id === state.activeTemplateId
+        ? { ...t, buttons: state.buttons.filter((b) => b.label).map((b) => ({ label: b.label, color: b.color })) }
+        : t
+    );
+    saveCustomTemplates(updated);
+    state.templateDirty = false;
+    saveState();
+    updateQuickSaveButton();
+  });
+
+  saveTemplateNameInput?.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      document.getElementById('aac-save-template-btn')?.dispatchEvent(new Event('click'));
+    }
+  });
+
+  document.getElementById('aac-templates-btn')?.addEventListener('click', () => {
+    renderTemplateList();
+    templatesOverlay.hidden = false;
+  });
+  document.getElementById('aac-templates-close')?.addEventListener('click', () => {
+    templatesOverlay.hidden = true;
+  });
+  templatesOverlay.addEventListener('click', (e) => {
+    if (e.target === templatesOverlay) templatesOverlay.hidden = true;
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key !== 'Escape') return;
+    editOverlay.hidden = true;
+    settingsOverlay.hidden = true;
+    templatesOverlay.hidden = true;
+  });
+
+  // --- Full screen + screen wake lock ---
+  const gridWrapper = document.getElementById('aac-grid-wrapper') as HTMLElement;
+  const fullscreenBtn = document.getElementById('aac-fullscreen-btn') as HTMLButtonElement;
+  const fullscreenExitBtn = document.getElementById('aac-fullscreen-exit') as HTMLButtonElement;
+
+  let wakeLock: any = null;
+
+  async function requestWakeLock() {
+    if (!('wakeLock' in navigator)) return;
+    try {
+      wakeLock = await (navigator as any).wakeLock.request('screen');
+    } catch {
+      // Wake lock can fail (e.g. low battery, unsupported context) — fail silently, full screen still works.
+    }
+  }
+
+  async function releaseWakeLock() {
+    try {
+      await wakeLock?.release();
+    } catch {
+      // already released or unavailable
+    }
+    wakeLock = null;
+  }
+
+  fullscreenBtn?.addEventListener('click', async () => {
+    if (!gridWrapper.requestFullscreen) {
+      await showAlert("Sorry, full screen isn't supported in this browser.");
+      return;
+    }
+    try {
+      await gridWrapper.requestFullscreen();
+      await requestWakeLock();
+    } catch {
+      await showAlert("Couldn't enter full screen. Your browser may have blocked the request.");
+    }
+  });
+
+  fullscreenExitBtn?.addEventListener('click', () => {
+    if (document.fullscreenElement) document.exitFullscreen();
+  });
+
+  document.addEventListener('fullscreenchange', () => {
+    if (!document.fullscreenElement) releaseWakeLock();
+  });
+
+  // Re-acquire the wake lock if the tab regains visibility while still full screen
+  // (the OS/browser releases it automatically when the tab is backgrounded).
+  document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'visible' && document.fullscreenElement) {
+      void requestWakeLock();
+    }
+  });
+
+  renderTemplateList();
+  render();
+  updateQuickSaveButton();
+</script>
