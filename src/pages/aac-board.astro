@@ -35,6 +35,12 @@ import Layout from '../layouts/Layout.astro';
   ]
   </script>
 
+  <link slot="head" rel="manifest" href="/aac-board.webmanifest" />
+  <meta slot="head" name="mobile-web-app-capable" content="yes" />
+  <meta slot="head" name="apple-mobile-web-app-capable" content="yes" />
+  <meta slot="head" name="apple-mobile-web-app-title" content="AAC Board" />
+  <meta slot="head" name="apple-mobile-web-app-status-bar-style" content="default" />
+
   <div id="aac-root" data-theme="purple">
   <section class="aac-page" id="aac-page">
     <div class="aac-shell">
