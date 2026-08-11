@@ -1,15 +1,25 @@
 {
-  "name": "Connected Speech AAC Board",
-  "short_name": "AAC Board",
-  "description": "A free browser-based AAC communication board with customisable buttons and text-to-speech playback.",
-  "start_url": "/aac-board",
-  "scope": "/aac-board",
-  "display": "standalone",
-  "orientation": "any",
-  "theme_color": "#9654C7",
-  "background_color": "#FAF5FF",
-  "icons": [
-    { "src": "/aac-board-icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
-    { "src": "/aac-board-icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" }
-  ]
+    "name": "Connected Speech AAC Board",
+    "short_name": "Connected Speech AAC Board",
+    "description": "A free browser-based AAC communication board with customisable buttons and text-to-speech playback.",
+    "start_url": "/aac-board",
+    "scope": "/aac-board",
+    "display": "standalone",
+    "orientation": "any",
+    "theme_color": "#9654C7",
+    "background_color": "#FAF5FF",
+    "icons": [
+        {
+            "src": "/aac-board-icon-192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "any"
+        },
+        {
+            "src": "/aac-board-icon-512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any"
+        }
+    ]
 }
