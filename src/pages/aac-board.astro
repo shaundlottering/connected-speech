@@ -1006,4 +1006,13 @@ import Layout from '../layouts/Layout.astro';
   renderTemplateList();
   render();
   updateQuickSaveButton();
+
+  // Register the service worker so Chrome/Android recognise this page as installable
+  // (the automatic install icon/prompt requires an active SW with a fetch handler,
+  // unlike manual "Add to Home Screen" via the browser menu). Scoped to this page only.
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/aac-board-sw.js', { scope: '/aac-board' }).catch(() => {
+      // Registration can fail in some contexts (e.g. private browsing) — non-fatal, the page still works.
+    });
+  }
 </script>
