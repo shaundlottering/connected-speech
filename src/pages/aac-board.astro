@@ -8,7 +8,6 @@ import Layout from '../layouts/Layout.astro';
   path="/aac-board"
   ogTitle="Connected Speech AAC Board"
   ogDescription="A free, browser-based AAC communication board. Add buttons, choose colors, and let your device speak each word aloud."
-  robots="noindex, follow"
 >
   <script slot="head" type="application/ld+json" is:inline>
   [
@@ -481,19 +480,6 @@ import Layout from '../layouts/Layout.astro';
     large: { size: '175px', font: '1.4rem' },
   };
 
-  const TEMPLATES: Record<string, { name: string; description: string; words: string[] }> = {
-    feeding: {
-      name: 'Feeding',
-      description: 'Hungry, water, more, all done, and other mealtime words.',
-      words: ['Hungry', 'Thirsty', 'More', 'All Done', 'Yummy', 'Yucky', 'Eat', 'Drink', 'Snack', 'Help'],
-    },
-    goingOut: {
-      name: 'Going Out',
-      description: 'Shoes, coat, car, and other words for heading out the door.',
-      words: ['Shoes', 'Coat', 'Car', 'Outside', 'Bathroom', 'Wait', 'Home', 'Help', 'Stop', 'Go'],
-    },
-  };
-
   function defaultState(): AacState {
     return {
       buttons: [{ id: crypto.randomUUID(), label: '', color: PALETTE[5] }],
@@ -577,7 +563,7 @@ import Layout from '../layouts/Layout.astro';
   // by the major platforms. Falls back to the browser default if nothing matches.
   let cachedVoices: SpeechSynthesisVoice[] = [];
   const FEMALE_VOICE_HINTS = /female|zira|samantha|victoria|karen|susan|moira|tessa|fiona|serena|allison|ava|kate|amy|emma|joanna|salli|kimberly|hazel|kathy/i;
-  const MALE_VOICE_HINTS = /male|david|daniel|alex\b|fred|\btom\b|james|george|mark|matthew|justin|joey|brian|\bguy\b|ryan|oliver/i;
+  const MALE_VOICE_HINTS = /\bmale\b|david|daniel|alex\b|fred|\btom\b|james|george|mark|matthew|justin|joey|brian|\bguy\b|ryan|oliver/i;
 
   function loadVoices() {
     if ('speechSynthesis' in window) cachedVoices = window.speechSynthesis.getVoices();
@@ -814,13 +800,8 @@ import Layout from '../layouts/Layout.astro';
     localStorage.setItem(CUSTOM_TEMPLATES_KEY, JSON.stringify(list));
   }
 
-  function loadButtonsFromWords(words: string[]) {
-    state.buttons = words.map((word, i) => ({
-      id: crypto.randomUUID(),
-      label: word,
-      color: PALETTE[i % PALETTE.length],
-    }));
-    // Built-in templates aren't user-owned, so this board is no longer tied to a saved template.
+  function loadBlankBoard() {
+    state.buttons = [{ id: crypto.randomUUID(), label: '', color: PALETTE[0] }];
     state.activeTemplateId = null;
     state.activeTemplateName = null;
     state.templateDirty = false;
@@ -848,20 +829,18 @@ import Layout from '../layouts/Layout.astro';
   function renderTemplateList() {
     templateList.innerHTML = '';
 
-    for (const tpl of Object.values(TEMPLATES)) {
-      const row = document.createElement('div');
-      row.className = 'aac-template-row';
-      const card = document.createElement('button');
-      card.type = 'button';
-      card.className = 'aac-template-card';
-      card.innerHTML = `<strong>${escapeHtml(tpl.name)}</strong><span>${escapeHtml(tpl.description)}</span>`;
-      card.addEventListener('click', async () => {
-        if (!(await showConfirm(`Load the "${tpl.name}" template? This replaces your current buttons.`))) return;
-        loadButtonsFromWords(tpl.words);
-      });
-      row.appendChild(card);
-      templateList.appendChild(row);
-    }
+    const blankRow = document.createElement('div');
+    blankRow.className = 'aac-template-row';
+    const blankCard = document.createElement('button');
+    blankCard.type = 'button';
+    blankCard.className = 'aac-template-card';
+    blankCard.innerHTML = `<strong>Blank</strong><span>Start over with a single empty button.</span>`;
+    blankCard.addEventListener('click', async () => {
+      if (!(await showConfirm('Start with a blank board? This replaces your current buttons.'))) return;
+      loadBlankBoard();
+    });
+    blankRow.appendChild(blankCard);
+    templateList.appendChild(blankRow);
 
     const customTemplates = loadCustomTemplates();
     for (const tpl of customTemplates) {

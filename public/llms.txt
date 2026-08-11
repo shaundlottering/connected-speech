@@ -21,6 +21,7 @@ Sessions are accepted on medical aid and cash. We also submit to medical aid on 
 - [School-Based Speech Therapy](https://connectedspeech.co.za/therapy-services/school-based-speech-therapy): onsite speech therapy partnerships for schools in Sandton and Johannesburg
 - [Online Speech Therapy](https://connectedspeech.co.za/therapy-services/online-speech-therapy): video-call speech therapy for language, literacy, articulation, stuttering, AAC coaching, and stroke recovery support, wherever you are
 - [How We Work](https://connectedspeech.co.za/how-we-work): session formats — school visits, home visits, private sessions, and online therapy
+- [Connected Speech AAC Board](https://connectedspeech.co.za/aac-board): free browser-based AAC communication board with customisable buttons and text-to-speech playback
 - [Contact](https://connectedspeech.co.za/contact): contact details and booking information
 
 ## Therapist

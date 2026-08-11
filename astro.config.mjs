@@ -24,7 +24,7 @@ export default defineConfig({
     },
 
     integrations: [critters(), partytown({ config: { forward: ['dataLayer.push'] } }), sitemap({
-        filter: (page) => !page.includes('/test') && !page.includes('/thanks') && !page.includes('/aac-board'),
+        filter: (page) => !page.includes('/test') && !page.includes('/thanks'),
         serialize(item) {
             const priorities = /** @type {Record<string, number>} */ ({
                 "https://connectedspeech.co.za/": 1.0,
@@ -37,6 +37,7 @@ export default defineConfig({
                 "https://connectedspeech.co.za/therapy-services/special-needs-speech-therapy": 0.7,
                 "https://connectedspeech.co.za/therapy-services/online-speech-therapy": 0.7,
                 "https://connectedspeech.co.za/how-we-work": 0.6,
+                "https://connectedspeech.co.za/aac-board": 0.7,
             });
             const priority = priorities[item.url] ?? 0.6;
             const changefreq = /** @type {any} */ ("weekly");
