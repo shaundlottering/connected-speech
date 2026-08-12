@@ -726,6 +726,14 @@ const canonical = `https://connectedspeech.co.za${path === '/' ? '' : path}`;
       margin-bottom: 0.75rem;
     }
 
+    /* When a condition-card is a link (e.g. the therapy-services overview grid)
+       rather than a plain descriptive article, give it block layout and a
+       clear "this is clickable" affordance without affecting the article-based
+       cards used elsewhere. */
+    a.condition-card { display: block; text-decoration: none; margin-bottom: 0; }
+    a.condition-card .condition-title::after { content: ' →'; color: var(--purple-mid); }
+    a.condition-card:hover .condition-title { color: var(--purple-mid); }
+
     .condition-desc { font-size: 0.95rem; line-height: 1.7; color: var(--body); }
     .condition-desc a {
       display: inline-block;
