@@ -1,7 +1,7 @@
 {
     "name": "Connected Speech AAC Board",
     "short_name": "Connected Speech AAC Board",
-    "description": "A free browser-based AAC communication board with customisable buttons and text-to-speech playback.",
+    "description": "A free online AAC communication board with customisable buttons and text-to-speech playback.",
     "start_url": "/aac-board",
     "scope": "/aac-board",
     "display": "standalone",
