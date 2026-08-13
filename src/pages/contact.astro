@@ -11,71 +11,21 @@ import ContactForm from '../components/ContactForm.astro';
   ogDescription="Get in touch with Connected Speech, a speech therapy practice in Sandton. We accept medical aid and cash."
 >
   <script slot="head" type="application/ld+json" is:inline>
-  [
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://connectedspeech.co.za" },
-        { "@type": "ListItem", "position": 2, "name": "Contact", "item": "https://connectedspeech.co.za/contact" }
-      ]
-    },
-    {
+  {
     "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "What is Connected Speech?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Connected speech is the term used in speech-language pathology to describe natural, continuous language as it occurs in real conversation and daily communication. Unlike isolated words or sounds produced in a clinical setting, connected speech involves the rhythm, flow, and interaction of language as it actually happens. Assessing and improving connected speech is central to what we do, because real communication happens in connection with other people."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Do you have an office?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "We offer sessions at our private premises in Morningside, Sandton, as well as home visits and school visits. Whatever setting works best for you and your family, we will make it work."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Do you accept medical aid and cash?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes. We accept both medical aid and cash payments. We also submit to medical aid on your behalf, so there is nothing for you to chase. Speak to us about your specific plan and we will take it from there."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What ages do you work with?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "We work with children from birth through school age and with adults at any stage of life. Whether you are a parent with concerns about your toddler or an adult navigating communication challenges after a stroke or other medical condition, we are here to help."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What is AAC?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Augmentative and Alternative Communication (AAC) refers to tools and strategies that support communication beyond speech. This includes Makaton signing, picture-based systems, and high-tech communication devices. Jodi specialises in AAC and works with children and adults who communicate in ways that go beyond spoken words."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How do I know if my child needs speech therapy?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "If you have any concerns about your child's speech, language development, feeding, or communication at any age, an assessment is always the right first step. Early intervention makes the biggest difference, and there is no such thing as seeking help too soon."
-        }
-      }
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://connectedspeech.co.za" },
+      { "@type": "ListItem", "position": 2, "name": "Contact", "item": "https://connectedspeech.co.za/contact" }
     ]
-    }
-  ]
+  }
   </script>
+
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="/">Home</a>
+    <span aria-hidden="true">/</span>
+    <span aria-current="page">Contact</span>
+  </nav>
 
   <section class="section contact-page" aria-labelledby="contact-heading">
     <div class="section-inner">
@@ -127,51 +77,6 @@ import ContactForm from '../components/ContactForm.astro';
     </div>
   </section>
 
-  <!-- FAQ -->
-  <section class="section faq-section" aria-labelledby="contact-faq-heading">
-    <div class="section-inner faq-inner">
-      <span class="section-label">Questions</span>
-      <h2 class="section-heading" id="contact-faq-heading">Frequently Asked Questions</h2>
-      <div class="faq-list">
-        <details class="faq-item">
-          <summary class="faq-question">What is Connected Speech?</summary>
-          <div class="faq-answer">
-            <p>Connected speech is the term used in speech-language pathology to describe natural, continuous language as it occurs in real conversation and daily communication. Unlike isolated words or sounds produced in a clinical setting, connected speech involves the rhythm, flow, and interaction of language as it actually happens. Assessing and improving connected speech is central to what we do, because real communication happens in connection with other people.</p>
-          </div>
-        </details>
-        <details class="faq-item">
-          <summary class="faq-question">Do you have an office?</summary>
-          <div class="faq-answer">
-            <p>Your therapist can see you at our private premises in Morningside, Sandton, as well as through <a href="/how-we-work">home visits and school visits</a>. Whatever setting works best for you and your family, we will make it work.</p>
-          </div>
-        </details>
-        <details class="faq-item">
-          <summary class="faq-question">Do you accept medical aid and cash?</summary>
-          <div class="faq-answer">
-            <p>Yes. We accept both medical aid and cash payments. We also submit to medical aid on your behalf, so there is nothing for you to chase. Speak to us about your specific plan and we will take it from there.</p>
-          </div>
-        </details>
-        <details class="faq-item">
-          <summary class="faq-question">What ages do you work with?</summary>
-          <div class="faq-answer">
-            <p>Our therapist works with children from birth through school age and with adults at any stage of life. Whether you are a parent with concerns about your toddler or an adult navigating communication challenges after a stroke or other medical condition, we are here to help.</p>
-          </div>
-        </details>
-        <details class="faq-item">
-          <summary class="faq-question">What is AAC?</summary>
-          <div class="faq-answer">
-            <p><a href="/therapy-services/special-needs-speech-therapy">Augmentative and Alternative Communication (AAC)</a> refers to tools and strategies that support communication beyond speech. This includes Makaton signing, picture-based systems, and high-tech communication devices. Jodi specialises in AAC and works with children and adults who communicate in ways that go beyond spoken words.</p>
-          </div>
-        </details>
-        <details class="faq-item">
-          <summary class="faq-question">How do I know if my child needs speech therapy?</summary>
-          <div class="faq-answer">
-            <p>If you have any concerns about your child's speech, language development, <a href="/therapy-services/feeding-therapy">feeding</a>, or communication at any age, speaking with a therapist is always the right first step. Early intervention makes the biggest difference, and there is no such thing as seeking help too soon.</p>
-          </div>
-        </details>
-      </div>
-    </div>
-  </section>
 </Layout>
 
 <style>
