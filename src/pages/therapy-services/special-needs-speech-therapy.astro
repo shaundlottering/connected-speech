@@ -38,6 +38,36 @@ import ContactForm from '../../components/ContactForm.astro';
         "@type": "Audience",
         "audienceType": "Children and adults with complex communication needs, including autism spectrum communication differences"
       }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Does my child need AAC? Will using AAC stop them from learning to speak?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "This is one of the most common concerns parents raise, and the research is clear. AAC does not prevent speech development. In fact, giving a child a reliable way to communicate often reduces frustration and creates the conditions in which speech can emerge. AAC is not a last resort. It is a tool, and for many children it is the bridge between silence and connection."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is Makaton?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Makaton is a language programme that uses signs and symbols alongside speech to support communication. It is not a replacement for speech. It is used together with spoken words to give people an additional way to express themselves and understand others. Makaton is widely used with children and adults who have communication differences, and it can be learned by the whole family so that communication is consistent across every environment."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is AAC?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "AAC stands for Augmentative and Alternative Communication. It refers to any tool, strategy, or system that supports or replaces speech, from simple picture cards and Makaton signing to high-tech speech-generating devices. AAC is used with children and adults who have complex communication needs, and it is always tailored to the individual. The goal is always functional communication: being able to express needs, wants, thoughts, and feelings in a way that works for that person."
+          }
+        }
+      ]
     }
   ]
   </script>
@@ -174,6 +204,51 @@ import ContactForm from '../../components/ContactForm.astro';
     </div>
   </section>
 
+  <!-- CTA -->
+  <section class="cta-section" aria-labelledby="special-needs-cta-heading" id="special-needs-cta">
+    <div class="cta-grid">
+      <div class="cta-grid-text">
+        <h2 id="special-needs-cta-heading">With words, with signs, with anything that works.</h2>
+        <p>
+          Book a free screening or get in touch to find out how AAC, Makaton, or PROMPT could help you or a
+          family member communicate with confidence.
+        </p>
+        <p class="cta-note">Medical aid and cash accepted.</p>
+      </div>
+      <div class="cta-grid-form">
+        <ContactForm dark />
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section faq-section" aria-labelledby="special-needs-faq-heading">
+    <div class="section-inner faq-inner">
+      <span class="section-label">Questions</span>
+      <h2 class="section-heading" id="special-needs-faq-heading">Frequently Asked Questions</h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary class="faq-question">Does my child need AAC? Will using AAC stop them from learning to speak?</summary>
+          <div class="faq-answer">
+            <p>This is one of the most common concerns parents raise, and the research is clear. AAC does not prevent speech development. In fact, giving a child a reliable way to communicate often reduces frustration and creates the conditions in which speech can emerge. AAC is not a last resort. It is a tool, and for many children it is the bridge between silence and connection.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-question">What is Makaton?</summary>
+          <div class="faq-answer">
+            <p>Makaton is a language programme that uses signs and symbols alongside speech to support communication. It is not a replacement for speech. It is used together with spoken words to give people an additional way to express themselves and understand others. Makaton is widely used with children and adults who have communication differences, and it can be learned by the whole family so that communication is consistent across every environment.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-question">What is AAC?</summary>
+          <div class="faq-answer">
+            <p>AAC stands for Augmentative and Alternative Communication. It refers to any tool, strategy, or system that supports or replaces speech, from simple picture cards and Makaton signing to high-tech speech-generating devices. AAC is used with children and adults who have complex communication needs, and it is always tailored to the individual. The goal is always functional communication: being able to express needs, wants, thoughts, and feelings in a way that works for that person.</p>
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
   <!-- Related Services -->
   <section class="section related-services" aria-labelledby="special-needs-related-heading">
     <div class="section-inner">
@@ -192,23 +267,6 @@ import ContactForm from '../../components/ContactForm.astro';
           <span class="related-icon" aria-hidden="true">💻</span>
           <h3 class="related-title">Online Speech Therapy</h3>
         </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA -->
-  <section class="cta-section" aria-labelledby="special-needs-cta-heading" id="special-needs-cta">
-    <div class="cta-grid">
-      <div class="cta-grid-text">
-        <h2 id="special-needs-cta-heading">With words, with signs, with anything that works.</h2>
-        <p>
-          Book a free screening or get in touch to find out how AAC, Makaton, or PROMPT could help you or a
-          family member communicate with confidence.
-        </p>
-        <p class="cta-note">Medical aid and cash accepted.</p>
-      </div>
-      <div class="cta-grid-form">
-        <ContactForm dark />
       </div>
     </div>
   </section>

@@ -38,6 +38,52 @@ import ContactForm from '../../components/ContactForm.astro';
         "@type": "Audience",
         "audienceType": "Children and adults with speech, language, or communication difficulties"
       }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "At what age should my child start speech therapy?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "There is no minimum age. If you have a concern, a screening is always appropriate, even for very young children. The earlier a communication difference is identified, the more effectively it can be addressed. The 0 to 5 window is a critical period for language development, and early intervention during this time consistently leads to better long-term outcomes. That said, it is never too late. Adults benefit from speech therapy too, at any stage of life."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I know if my child needs speech therapy?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Every child develops at their own pace, but there are signs worth paying attention to. By 12 months, most children are pointing, making sounds, and responding to their name. By 18 months, they are typically saying a handful of words. By 2 years, they are starting to combine words. By 3 years, most of what they say should be understandable to unfamiliar people. If your child is not meeting these milestones, or if you simply feel that something is not quite right, a free screening will give you clarity. Trust your instincts. Parents notice things early."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the difference between a speech delay and a language delay?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A speech delay refers to difficulty with the physical production of sounds, meaning how words are pronounced. A language delay refers to difficulty with understanding or using language itself, including vocabulary, sentence structure, and the ability to express thoughts and understand others. A child can have one, the other, or both. An assessment will identify exactly what is happening and what kind of support is needed."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "My child is two and not talking yet. Should I be worried?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It depends. Some children are late talkers who catch up on their own. Others benefit significantly from early intervention. A free screening will help determine which category your child falls into and whether therapy is recommended. What we know for certain is that waiting and hoping rarely leads to better outcomes than early assessment and, if needed, early support."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "I am an adult. Is speech therapy relevant for me?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Absolutely. Speech therapy supports adults with a wide range of communication challenges, including stuttering, voice difficulties, communication changes following a stroke or other medical condition, and complex communication needs. Communication affects every area of life, and adults deserve the same access to support as children."
+          }
+        }
+      ]
     }
   ]
   </script>
@@ -59,12 +105,24 @@ import ContactForm from '../../components/ContactForm.astro';
         <p>
           Speech therapy is the process of building the skills someone needs to communicate clearly and
           confidently, whether that means finding the right sounds, the right words, the right sentence
-          structure, or the right tool to express a thought. At Connected Speech, therapy is built around
-          the individual: their needs, their pace, and their world.
+          structure, or the right tool to express a thought.
+        </p>
+        <p>
+          Communication is not just about speech. It is about being understood by the people around you,
+          being able to ask for what you need, and being able to participate in the moments that matter. A
+          conversation at the dinner table, a question in the classroom, a request at work, or a word
+          spoken to someone you love for the very first time.
+        </p>
+        <p>
+          At Connected Speech, therapy is built around the individual. Not a checklist, not a programme
+          that works the same way for every child or adult who walks through the door. We take the time to
+          understand what is happening, what is driving it, and what a realistic, meaningful path forward
+          looks like for that specific person, in their specific world.
         </p>
         <p>
           We work with children from birth through school age, and with adults at any stage of life,
-          including those recovering from a stroke or living with a lifelong communication difference.
+          including those recovering from a stroke, living with a lifelong communication difference, or
+          simply navigating a challenge that has never been properly addressed.
         </p>
       </div>
       <div class="hero-actions" style="margin-top: 2rem;">
@@ -184,6 +242,63 @@ import ContactForm from '../../components/ContactForm.astro';
     </div>
   </section>
 
+  <!-- CTA -->
+  <section class="cta-section" aria-labelledby="speech-cta-heading" id="speech-cta">
+    <div class="cta-grid">
+      <div class="cta-grid-text">
+        <h2 id="speech-cta-heading">You have something to say.<br/>Let's help you say it.</h2>
+        <p>
+          Book a free screening or get in touch to find out whether speech therapy is the right next step
+          for you or your family.
+        </p>
+        <p class="cta-note">Medical aid and cash accepted.</p>
+      </div>
+      <div class="cta-grid-form">
+        <ContactForm dark />
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section faq-section" aria-labelledby="speech-faq-heading">
+    <div class="section-inner faq-inner">
+      <span class="section-label">Questions</span>
+      <h2 class="section-heading" id="speech-faq-heading">Frequently Asked Questions</h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary class="faq-question">At what age should my child start speech therapy?</summary>
+          <div class="faq-answer">
+            <p>There is no minimum age. If you have a concern, a screening is always appropriate, even for very young children. The earlier a communication difference is identified, the more effectively it can be addressed. The 0 to 5 window is a critical period for language development, and early intervention during this time consistently leads to better long-term outcomes. That said, it is never too late. Adults benefit from speech therapy too, at any stage of life.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-question">How do I know if my child needs speech therapy?</summary>
+          <div class="faq-answer">
+            <p>Every child develops at their own pace, but there are signs worth paying attention to. By 12 months, most children are pointing, making sounds, and responding to their name. By 18 months, they are typically saying a handful of words. By 2 years, they are starting to combine words. By 3 years, most of what they say should be understandable to unfamiliar people. If your child is not meeting these milestones, or if you simply feel that something is not quite right, a free screening will give you clarity. Trust your instincts. Parents notice things early.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-question">What is the difference between a speech delay and a language delay?</summary>
+          <div class="faq-answer">
+            <p>A speech delay refers to difficulty with the physical production of sounds, meaning how words are pronounced. A language delay refers to difficulty with understanding or using language itself, including vocabulary, sentence structure, and the ability to express thoughts and understand others. A child can have one, the other, or both. An assessment will identify exactly what is happening and what kind of support is needed.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-question">My child is two and not talking yet. Should I be worried?</summary>
+          <div class="faq-answer">
+            <p>It depends. Some children are late talkers who catch up on their own. Others benefit significantly from early intervention. A free screening will help determine which category your child falls into and whether therapy is recommended. What we know for certain is that waiting and hoping rarely leads to better outcomes than early assessment and, if needed, early support.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-question">I am an adult. Is speech therapy relevant for me?</summary>
+          <div class="faq-answer">
+            <p>Absolutely. Speech therapy supports adults with a wide range of communication challenges, including stuttering, voice difficulties, communication changes following a stroke or other medical condition, and complex communication needs. Communication affects every area of life, and adults deserve the same access to support as children.</p>
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
   <!-- Related Services -->
   <section class="section related-services" aria-labelledby="speech-related-heading">
     <div class="section-inner">
@@ -202,23 +317,6 @@ import ContactForm from '../../components/ContactForm.astro';
           <span class="related-icon" aria-hidden="true">💻</span>
           <h3 class="related-title">Online Speech Therapy</h3>
         </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA -->
-  <section class="cta-section" aria-labelledby="speech-cta-heading" id="speech-cta">
-    <div class="cta-grid">
-      <div class="cta-grid-text">
-        <h2 id="speech-cta-heading">You have something to say.<br/>Let's help you say it.</h2>
-        <p>
-          Book a free screening or get in touch to find out whether speech therapy is the right next step
-          for you or your family.
-        </p>
-        <p class="cta-note">Medical aid and cash accepted.</p>
-      </div>
-      <div class="cta-grid-form">
-        <ContactForm dark />
       </div>
     </div>
   </section>

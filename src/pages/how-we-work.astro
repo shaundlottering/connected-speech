@@ -11,14 +11,62 @@ import ContactForm from '../components/ContactForm.astro';
   ogDescription="Therapy that fits your life, not the other way around. School visits, home visits, private sessions, and online therapy, all with one dedicated therapist."
 >
   <script slot="head" type="application/ld+json" is:inline>
-  {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://connectedspeech.co.za" },
-      { "@type": "ListItem", "position": 2, "name": "How We Work", "item": "https://connectedspeech.co.za/how-we-work" }
-    ]
-  }
+  [
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://connectedspeech.co.za" },
+        { "@type": "ListItem", "position": 2, "name": "How We Work", "item": "https://connectedspeech.co.za/how-we-work" }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How long will my child need therapy?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "This depends entirely on the individual, including the nature of the challenge, the age at which therapy begins, how consistently goals are worked on at home and school, and how the child responds to intervention. Some children make rapid progress over a few months. Others benefit from longer-term support. Your therapist will give you a realistic picture after the assessment and will review progress regularly so that therapy remains purposeful and goal-driven."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What happens in a session?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sessions are play-based for younger children, because play is how children learn and the best therapy does not feel like work. For older children and adults, sessions are structured around specific, agreed goals using activities and approaches that are relevant to that person's life. After every session, parents and families receive a clear summary of what was worked on and how progress is going."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you work with schools?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Connected Speech has established school partnerships across the Johannesburg and Sandton area, providing therapy directly on school premises so that children receive support in the environment where they spend most of their day. If your child's school does not currently have a speech therapist on site, get in touch as we may be able to help."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does medical aid cover speech therapy?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Most major medical aids in South Africa cover speech therapy, including Discovery, Momentum, Bonitas, and Medihelp, typically under chronic benefit, PMB (Prescribed Minimum Benefits), or savings. The specifics depend on your plan. We bill medical aid directly on your behalf, so you do not need to manage the claims process yourself. If you are unsure what your plan covers, contact your scheme and ask specifically about speech therapy benefits."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the difference between a screening and an assessment?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A screening is a brief, free overview that gives an indication of whether there is a concern worth investigating further. It does not produce a detailed report or diagnosis. An assessment is a comprehensive evaluation that examines specific areas of communication in depth, identifies what is happening and why, and forms the basis of a therapy plan. If a screening suggests that further investigation is warranted, an assessment will be recommended."
+          }
+        }
+      ]
+    }
+  ]
   </script>
 
   <!-- Intro -->
@@ -97,6 +145,46 @@ import ContactForm from '../components/ContactForm.astro';
       </div>
       <div class="cta-grid-form">
         <ContactForm dark />
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section faq-section" aria-labelledby="how-we-work-faq-heading">
+    <div class="section-inner faq-inner">
+      <span class="section-label">Questions</span>
+      <h2 class="section-heading" id="how-we-work-faq-heading">Frequently Asked Questions</h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary class="faq-question">How long will my child need therapy?</summary>
+          <div class="faq-answer">
+            <p>This depends entirely on the individual, including the nature of the challenge, the age at which therapy begins, how consistently goals are worked on at home and school, and how the child responds to intervention. Some children make rapid progress over a few months. Others benefit from longer-term support. Your therapist will give you a realistic picture after the assessment and will review progress regularly so that therapy remains purposeful and goal-driven.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-question">What happens in a session?</summary>
+          <div class="faq-answer">
+            <p>Sessions are play-based for younger children, because play is how children learn and the best therapy does not feel like work. For older children and adults, sessions are structured around specific, agreed goals using activities and approaches that are relevant to that person's life. After every session, parents and families receive a clear summary of what was worked on and how progress is going.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-question">Do you work with schools?</summary>
+          <div class="faq-answer">
+            <p>Yes. Connected Speech has established <a href="/therapy-services/school-based-speech-therapy">school partnerships</a> across the Johannesburg and Sandton area, providing therapy directly on school premises so that children receive support in the environment where they spend most of their day. If your child's school does not currently have a speech therapist on site, get in touch as we may be able to help.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-question">Does medical aid cover speech therapy?</summary>
+          <div class="faq-answer">
+            <p>Most major medical aids in South Africa cover speech therapy, including Discovery, Momentum, Bonitas, and Medihelp, typically under chronic benefit, PMB (Prescribed Minimum Benefits), or savings. The specifics depend on your plan. We bill medical aid directly on your behalf, so you do not need to manage the claims process yourself. If you are unsure what your plan covers, contact your scheme and ask specifically about speech therapy benefits.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-question">What is the difference between a screening and an assessment?</summary>
+          <div class="faq-answer">
+            <p>A screening is a brief, free overview that gives an indication of whether there is a concern worth investigating further. It does not produce a detailed report or diagnosis. An assessment is a comprehensive evaluation that examines specific areas of communication in depth, identifies what is happening and why, and forms the basis of a therapy plan. If a screening suggests that further investigation is warranted, an assessment will be recommended.</p>
+          </div>
+        </details>
       </div>
     </div>
   </section>
