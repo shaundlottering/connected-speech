@@ -3,7 +3,6 @@ import { defineConfig } from "astro/config";
 import sitemap from "@astrojs/sitemap";
 import tailwindcss from "@tailwindcss/vite";
 import critters from "astro-critters";
-
 import partytown from "@astrojs/partytown";
 
 // https://astro.build/config
