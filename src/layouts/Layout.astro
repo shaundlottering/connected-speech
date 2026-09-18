@@ -301,7 +301,8 @@ const canonical = `https://connectedspeech.co.za${path === '/' ? '' : path}`;
       align-items: center;
     }
 
-    .nav-links a {
+    .nav-links a,
+    .nav-links .nav-dropdown-toggle {
       font-size: 0.9rem;
       font-weight: 500;
       color: var(--body);
@@ -309,7 +310,9 @@ const canonical = `https://connectedspeech.co.za${path === '/' ? '' : path}`;
     }
 
     .nav-links a:hover,
-    .nav-links a[aria-current="page"] { color: var(--purple); }
+    .nav-links a[aria-current="page"],
+    .nav-links .nav-dropdown-toggle:hover,
+    .nav-links .nav-dropdown-toggle[aria-current="page"] { color: var(--purple); }
 
     .nav-cta {
       background: var(--purple);
@@ -335,6 +338,7 @@ const canonical = `https://connectedspeech.co.za${path === '/' ? '' : path}`;
       display: inline-flex;
       align-items: center;
       gap: 0.35rem;
+      cursor: pointer;
     }
 
     .nav-dropdown-expand {
@@ -1213,14 +1217,13 @@ const canonical = `https://connectedspeech.co.za${path === '/' ? '' : path}`;
         <li><a href="/about" aria-current={path === '/about' ? 'page' : undefined}>About</a></li>
         <li class="nav-dropdown">
           <div class="nav-dropdown-head">
-            <a
-              href="/therapy-services"
+            <span
               class="nav-dropdown-toggle"
               aria-current={path.startsWith('/therapy-services') ? 'page' : undefined}
             >
               Therapy Services
               <span class="nav-dropdown-caret" aria-hidden="true">▾</span>
-            </a>
+            </span>
             <button
               type="button"
               class="nav-dropdown-expand"
@@ -1276,8 +1279,7 @@ const canonical = `https://connectedspeech.co.za${path === '/' ? '' : path}`;
     });
 
     // On mobile, clicking anywhere on the "Therapy Services" row toggles the
-    // submenu instead of navigating; on desktop the link navigates normally
-    // and hover/focus-within handles opening the dropdown.
+    // submenu; on desktop hover/focus-within handles opening the dropdown.
     dropdownHead?.addEventListener('click', (e) => {
       if (!isMobileNav()) return;
       e.preventDefault();
@@ -1308,7 +1310,6 @@ const canonical = `https://connectedspeech.co.za${path === '/' ? '' : path}`;
     <nav class="footer-nav" aria-label="Footer navigation">
       <a href="/">Home</a>
       <a href="/about">About</a>
-      <a href="/therapy-services">Therapy Services</a>
       <a href="/therapy-services/speech-therapy">Speech Therapy</a>
       <a href="/therapy-services/special-needs-speech-therapy">Special Needs Speech Therapy</a>
       <a href="/how-we-work">How We Work</a>

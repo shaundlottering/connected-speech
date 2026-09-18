@@ -31,7 +31,6 @@ export default defineConfig({
             serialize(item) {
                 const priorities = /** @type {Record<string, number>} */ ({
                     "https://connectedspeech.co.za/": 1.0,
-                    "https://connectedspeech.co.za/therapy-services": 0.6,
                     "https://connectedspeech.co.za/contact": 0.8,
                     "https://connectedspeech.co.za/about": 0.7,
                     "https://connectedspeech.co.za/therapy-services/school-based-speech-therapy": 0.7,
