@@ -17,7 +17,8 @@ import ContactForm from '../../components/ContactForm.astro';
       "@type": "BreadcrumbList",
       "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://connectedspeech.co.za" },
-        { "@type": "ListItem", "position": 2, "name": "School-Based Speech Therapy", "item": "https://connectedspeech.co.za/therapy-services/school-based-speech-therapy" }
+        { "@type": "ListItem", "position": 2, "name": "Therapy Services", "item": "https://connectedspeech.co.za/therapy-services" },
+        { "@type": "ListItem", "position": 3, "name": "School-Based Speech Therapy", "item": "https://connectedspeech.co.za/therapy-services/school-based-speech-therapy" }
       ]
     },
     {
@@ -44,6 +45,8 @@ import ContactForm from '../../components/ContactForm.astro';
 
   <nav class="breadcrumb" aria-label="Breadcrumb">
     <a href="/">Home</a>
+    <span aria-hidden="true">/</span>
+    <a href="/therapy-services">Therapy Services</a>
     <span aria-hidden="true">/</span>
     <span aria-current="page">School-Based Speech Therapy</span>
   </nav>
